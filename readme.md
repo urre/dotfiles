@@ -26,7 +26,7 @@ My dotfiles repo
 `.ssh/config`
 
 ```
-#Host *
+# Host *
 #  AddKeysToAgent yes
 #  UseKeychain yes
 #  IdentityFile ~/.ssh/id_rsa
@@ -49,4 +49,4 @@ Host bitbucket.org-urbansanden
   User git
   IdentityFile ~/.ssh/urbansanden-bitbucket
   IdentitiesOnly yes
-``
+```
