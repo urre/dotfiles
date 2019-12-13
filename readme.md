@@ -12,19 +12,41 @@ My dotfiles repo
 6. Activate Alfred Snippets, Workflows and Powerpack
 7. Install Adobe Creative Cloud
 8. Setup Viscosity and office VPN
-9. Migrate files from old machine
+9. Migrate needed ssh-keys, ssh config for multiple bitbucket users
+10. Copy VS Code settings, keybindings, check plugins
+11. Migrate files from old machine
     1. Desktop
     2. Documents
     3. projects
     4. Fonts
 
 
-### Notes
+### SSH Config
 
-Put this in `.ssh/config`
+`.ssh/config`
 
 ```
+#Host *
+#  AddKeysToAgent yes
+#  UseKeychain yes
+#  IdentityFile ~/.ssh/id_rsa
+
+# Needed at Curity HQ
 Host *
-  IPQoS=throughput
-```
-> Needed when at the Curity Office
+IPQoS=throughput
+
+#Using multiple Bitbucket accounts
+#urre Bitbucket
+Host bitbucket.org-urre
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/urre-bitbucket
+  IdentitiesOnly yes
+
+#urbansanden Bitbucket
+Host bitbucket.org-urbansanden
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/urbansanden-bitbucket
+  IdentitiesOnly yes
+``
