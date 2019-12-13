@@ -53,7 +53,6 @@ homebrew_packages=(
  "gradle"
  "heroku"
  "ffmpeg"
-
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
