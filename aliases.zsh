@@ -1,4 +1,3 @@
-# Alias
 alias cd..='cd ..'
 alias cls="clear"
 alias size="du -k -a | sort -n"

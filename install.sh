@@ -90,9 +90,11 @@ homebrew_cask_packages=(
 	"hyper"
 	"fork"
 	"handbrake"
+	"dropbox"
 	"brave"
 	"arq"
 	"app-cleaner"
+	"spectacle"
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
