@@ -6,20 +6,20 @@ My dotfiles repo
 
 1. Update macOS to the latest version through the App Store
 2. Install the full version of Xcode from the App Store then run `xcode-select --install`
-3. Clone repo into `~/.dotfiles`
-4. Run the installer script `./install.sh`
-5. Restart Mac
-6. Activate Alfred Snippets, Workflows and Powerpack
-7. Install Adobe Creative Cloud
-8. Setup Viscosity and office VPN
-9. Migrate needed ssh-keys, ssh config for multiple bitbucket users
+3. Migrate needed ssh-keys, ssh config for multiple bitbucket users from old machine
+4. Clone repo into `~/.dotfiles`
+5. Run the installer script `./install.sh`
+6. Restart Mac
+7. Activate Alfred Snippets, Workflows and Powerpack
+8. Install Adobe Creative Cloud
+9. Setup Viscosity and office VPN
 10. Copy VS Code settings, keybindings, check plugins
 11. Migrate files from old machine
     1. Desktop
     2. Documents
     3. projects
     4. Fonts
-
+12. Lightroom catalogue + The Fader + Presets
 
 ### SSH Config
 
