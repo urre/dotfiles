@@ -20,6 +20,7 @@ My dotfiles repo
     3. projects
     4. Fonts
 12. Lightroom catalogue + The Fader + Presets
+13. Check `~/.gradle/gradle.properties` for Maven credentials
 
 ### SSH Config
 

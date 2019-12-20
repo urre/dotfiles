@@ -52,6 +52,7 @@ homebrew_packages=(
  "youtube-dl"
  "gradle"
  "heroku"
+ "gradle"
  "ffmpeg"
 )
 
