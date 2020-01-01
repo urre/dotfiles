@@ -33,7 +33,6 @@ if test ! $(which brew); then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-
 # Install NVM
 echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh | bash
@@ -100,6 +99,7 @@ homebrew_cask_packages=(
 	"spectacle"
 	"daisydisk"
 	"font-inconsolata"
+	"adobe-creative-cloud"
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
