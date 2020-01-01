@@ -10,7 +10,7 @@ My dotfiles repo
 4. Clone repo into `~/.dotfiles`
 5. Run the installer script `./install.sh`
 6. Restart Mac
-7. Activate Alfred Snippets, Workflows and Powerpack
+7. Activate Alfred Snippets, Workflows and Powerpack. Use Dropbox sync.
 8. Install Adobe Creative Cloud
 9. Setup Viscosity and office VPN
 10. Copy VS Code settings, keybindings, check plugins
