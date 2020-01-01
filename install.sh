@@ -11,7 +11,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Z for Oh My Zsh
 echo "Installing Z"
-git clone [https://github.com/agkozak/zsh-z](https://github.com/agkozak/zsh-z) $ZSH_CUSTOM/plugins/zsh-z
+git clone git@github.com:agkozak/zsh-z.git $ZSH_CUSTOM/plugins/zsh-z
 
 # Configure symlinks
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
@@ -20,7 +20,7 @@ ln -s ~/.dotfiles/.zshrc ~/.zshrc
 echo "Installing Homebrew"
 
 if test ! $(which brew); then
- /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update homebrew recipes
@@ -38,27 +38,27 @@ cd ~
 echo "Installing Homebrew packages"
 
 homebrew_packages=(
- "git"
- "git-standup"
- "mysql"
- "php"
- "node"
- "yarn"
- "imagemagick"
- "maven"
- "openssl"
- "python3"
- "svtplay-dl"
- "youtube-dl"
- "gradle"
- "heroku"
- "gradle"
- "ffmpeg"
- "jq"
+	"git"
+	"git-standup"
+	"mysql"
+	"php"
+	"node"
+	"yarn"
+	"imagemagick"
+	"maven"
+	"openssl"
+	"python3"
+	"svtplay-dl"
+	"youtube-dl"
+	"gradle"
+	"heroku"
+	"gradle"
+	"ffmpeg"
+	"jq"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
- brew install "$homebrew_package"
+	brew install "$homebrew_package"
 done
 
 # Install Casks
@@ -67,18 +67,18 @@ brew tap caskroom/fonts
 
 homebrew_cask_packages=(
 	"1Password"
-  "alfred"
-  "docker"
-  "firefox"
-  "github-desktop"
-  "google-chrome"
-  "insomnia"
-  "slack"
+	"alfred"
+	"docker"
+	"firefox"
+	"github-desktop"
+	"google-chrome"
+	"insomnia"
+	"slack"
 	"tidal"
-  "spotify"
-  "telegram"
-  "typora"
-  "vlc"
+	"spotify"
+	"telegram"
+	"typora"
+	"vlc"
 	"calibre"
 	"visual-studio-code"
 	"viscosity"
@@ -101,7 +101,7 @@ homebrew_cask_packages=(
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
-  brew cask install "$homebrew_cask_package"
+	brew cask install "$homebrew_cask_package"
 done
 
 # Install java8
@@ -125,7 +125,7 @@ echo "Generating SSH keys"
 ssh-keygen -t rsa
 
 echo "Copied SSH key to clipboard - You can now add it to Github"
-pbcopy < ~/.ssh/id_rsa.pub
+pbcopy <~/.ssh/id_rsa.pub
 
 # Register the Global Gitignore file
 git config --global core.exludesfile ~/.dotfiles/.gitconfig_global
