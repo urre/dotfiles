@@ -10,7 +10,7 @@ echo "Installing Oh My Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Z for Oh My Zsh
-echo "Installing Oh My Zsh"
+echo "Installing Z"
 git clone [https://github.com/agkozak/zsh-z](https://github.com/agkozak/zsh-z) $ZSH_CUSTOM/plugins/zsh-z
 
 # Configure symlinks
@@ -54,6 +54,7 @@ homebrew_packages=(
  "heroku"
  "gradle"
  "ffmpeg"
+ "jq"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
