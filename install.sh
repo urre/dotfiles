@@ -57,6 +57,7 @@ homebrew_packages=(
 	"imagemagick"
 	"openssl"
 	"python3"
+	"pipenv"
 	"svtplay-dl"
 	"youtube-dl"
 	"gradle"
