@@ -97,6 +97,7 @@ homebrew_cask_packages=(
 	"arq"
 	"app-cleaner"
 	"spectacle"
+	"daisydisk"
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
