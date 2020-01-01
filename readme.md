@@ -22,36 +22,6 @@ My dotfiles repo
 12. Locate Lightroom catalogue + The Fader + Presets
 13. Check `~/.gradle/gradle.properties` for Maven credentials
 
-### SSH Config
-
-`.ssh/config`
-
-```
-# Host *
-#  AddKeysToAgent yes
-#  UseKeychain yes
-#  IdentityFile ~/.ssh/id_rsa
-
-# Needed at Curity HQ
-Host *
-IPQoS=throughput
-
-#Using multiple Bitbucket accounts
-#urre Bitbucket
-Host bitbucket.org-urre
-  HostName bitbucket.org
-  User git
-  IdentityFile ~/.ssh/urre-bitbucket
-  IdentitiesOnly yes
-
-#urbansanden Bitbucket
-Host bitbucket.org-urbansanden
-  HostName bitbucket.org
-  User git
-  IdentityFile ~/.ssh/urbansanden-bitbucket
-  IdentitiesOnly yes
-```
-
 ### Arq
 
 Setup Backblaze B2

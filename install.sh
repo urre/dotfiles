@@ -5,6 +5,10 @@ set -euo pipefail
 echo "Setting up my Mac..."
 sudo -v
 
+# Setup .ssh/config
+mkdir -p $(dirname "$HOME/.ssh")
+ln -sfn ssh-config "$HOME/.ssh/config"
+
 # Update homebrew recipes
 brew update
 
@@ -24,6 +28,8 @@ git clone git@github.com:agkozak/zsh-z.git $ZSH_CUSTOM/plugins/zsh-z
 # Configure symlinks
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
+# Source .zhrc file
+echo "Sourcing ~/.zhrc"
 source ~/.zhrc
 
 # Homebrew - Installation
