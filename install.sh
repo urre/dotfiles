@@ -5,6 +5,14 @@ set -euo pipefail
 echo "Setting up my Mac..."
 sudo -v
 
+# Update homebrew recipes
+brew update
+
+# Install zsh from Homebrew
+echo "Installing zsh from Homebrew..."
+brew install zsh
+chsh -s /usr/local/bin/zsh
+
 # Oh My Zsh
 echo "Installing Oh My Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -16,6 +24,8 @@ git clone git@github.com:agkozak/zsh-z.git $ZSH_CUSTOM/plugins/zsh-z
 # Configure symlinks
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
+source ~/.zhrc
+
 # Homebrew - Installation
 echo "Installing Homebrew"
 
@@ -23,15 +33,10 @@ if test ! $(which brew); then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-# Update homebrew recipes
-brew update
 
 # Install NVM
 echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh | bash
-
-echo "Installing node"
-nvm install stable
 
 # Install Homebrew Packages
 cd ~
@@ -45,13 +50,10 @@ homebrew_packages=(
 	"node"
 	"yarn"
 	"imagemagick"
-	"maven"
 	"openssl"
 	"python3"
 	"svtplay-dl"
 	"youtube-dl"
-	"gradle"
-	"heroku"
 	"gradle"
 	"ffmpeg"
 	"jq"
@@ -63,14 +65,13 @@ done
 
 # Install Casks
 echo "Installing Homebrew cask packages"
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 
 homebrew_cask_packages=(
 	"1Password"
 	"alfred"
 	"docker"
 	"firefox"
-	"github-desktop"
 	"google-chrome"
 	"insomnia"
 	"slack"
@@ -93,11 +94,12 @@ homebrew_cask_packages=(
 	"fork"
 	"handbrake"
 	"dropbox"
-	"brave"
+	"brave-browser"
 	"arq"
 	"app-cleaner"
 	"spectacle"
 	"daisydisk"
+	"font-inconsolata"
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
@@ -106,7 +108,7 @@ done
 
 # Install java8
 echo "Installing java8"
-brew tap adoptopenjdk/openjdk
+brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
