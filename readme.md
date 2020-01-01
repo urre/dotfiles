@@ -5,7 +5,7 @@ My dotfiles repo
 ## Fresh macOS setup
 
 1. Update macOS to the latest version through the App Store
-2. Install the full version of Xcode from the App Store then run `xcode-select --install`
+2. Install the full version of Xcode from the App Store then run `xcode-select --install`. Also run `sudo xcodebuild -license`
 3. Migrate needed ssh-keys, ssh config for multiple bitbucket users from old machine
 4. Clone repo into `~/.dotfiles`
 5. Run the installer script `./install.sh`
