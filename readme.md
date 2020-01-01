@@ -19,7 +19,7 @@ My dotfiles repo
     2. Documents
     3. projects
     4. Fonts
-12. Lightroom catalogue + The Fader + Presets
+12. Locate Lightroom catalogue + The Fader + Presets
 13. Check `~/.gradle/gradle.properties` for Maven credentials
 
 ### SSH Config
@@ -51,3 +51,15 @@ Host bitbucket.org-urbansanden
   IdentityFile ~/.ssh/urbansanden-bitbucket
   IdentitiesOnly yes
 ```
+
+### Arq
+
+Setup Backblaze B2
+
+### VS Code
+
+Todo: Sync settings
+
+### Lightroom
+
+Todo: Sync presets
