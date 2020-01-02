@@ -2,7 +2,7 @@ alias cd..='cd ..'
 alias cls="clear"
 alias size="du -k -a | sort -n"
 alias iip="ifconfig |grep inet"
-alias eip="curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'"
+alias eip="curl icanhazip.com"
 
 # Git
 alias gitlog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
