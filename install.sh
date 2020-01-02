@@ -12,7 +12,7 @@ ln -sfn ssh-config "$HOME/.ssh/config"
 # Update Homebrew
 brew update
 
-# Install zsh from Homebrew
+# Install and use zsh from Homebrew
 echo "Installing zsh from Homebrew..."
 brew install zsh
 chsh -s /usr/local/bin/zsh
@@ -60,9 +60,7 @@ homebrew_packages=(
 	"php"
 	"pipenv"
 	"python3"
-	"svtplay-dl"
 	"yarn"
-	"youtube-dl"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
@@ -85,12 +83,16 @@ homebrew_cask_packages=(
 	"docker"
 	"dropbox"
 	"firefox"
-	"font-inconsolata"
+	"font-ibm-plex"
+	"font-roboto-mono"
+	"font-roboto"
 	"fork"
 	"google-chrome"
 	"handbrake"
 	"hyper"
 	"insomnia"
+	"kap"
+	"ngrok"
 	"notion"
 	"now"
 	"roon"
@@ -114,7 +116,7 @@ for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
 done
 
 # Install java
-echo "Installing java8"
+echo "Installing java"
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 brew cask install adoptopenjdk10
@@ -129,12 +131,13 @@ mv composer.phar /usr/local/bin/composer
 echo "Installing Global Node Dependecies"
 npm i -g netlify-cli
 npm i -g now
+npm i -g serve
 
 # Generate SSH key
 echo "Generating SSH keys"
 ssh-keygen -t rsa
 
-echo "Copied SSH key to clipboard - You can now add it to Github"
+echo "Copied SSH key to clipboard - You can now add it to Github, Bitbucket etc"
 pbcopy <~/.ssh/id_rsa.pub
 
 # Register the global gitignore file
