@@ -9,7 +9,7 @@ sudo -v
 mkdir -p $(dirname "$HOME/.ssh")
 ln -sfn ssh-config "$HOME/.ssh/config"
 
-# Update homebrew recipes
+# Update Homebrew
 brew update
 
 # Install zsh from Homebrew
@@ -32,14 +32,14 @@ ln -s ~/.dotfiles/.zshrc ~/.zshrc
 echo "Sourcing ~/.zhrc"
 source ~/.zhrc
 
-# Homebrew - Installation
+# Install Homebrew
 echo "Installing Homebrew"
 
 if test ! $(which brew); then
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-# Install NVM
+# Install nvm
 echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh | bash
 
@@ -48,75 +48,76 @@ cd ~
 echo "Installing Homebrew packages"
 
 homebrew_packages=(
-	"git"
-	"git-standup"
-	"mysql"
-	"php"
-	"node"
-	"yarn"
-	"imagemagick"
-	"openssl"
-	"python3"
-	"pipenv"
-	"svtplay-dl"
-	"youtube-dl"
-	"gradle"
 	"ffmpeg"
+	"git-standup"
+	"git"
+	"gradle"
+	"imagemagick"
 	"jq"
+	"mysql"
+	"node"
+	"openssl"
+	"php"
+	"pipenv"
+	"python3"
+	"svtplay-dl"
+	"yarn"
+	"youtube-dl"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
 	brew install "$homebrew_package"
 done
 
-# Install Casks
+# Install Homebrew cask packages
 echo "Installing Homebrew cask packages"
 brew tap homebrew/cask-fonts
 
 homebrew_cask_packages=(
 	"1Password"
+	"adobe-creative-cloud"
 	"alfred"
+	"app-cleaner"
+	"arq"
+	"brave-browser"
+	"calibre"
+	"daisydisk"
 	"docker"
+	"dropbox"
 	"firefox"
+	"font-inconsolata"
+	"fork"
 	"google-chrome"
+	"handbrake"
+	"hyper"
 	"insomnia"
+	"notion"
+	"now"
+	"roon"
+	"sequel-pro"
+	"skype"
 	"slack"
-	"tidal"
+	"soulver"
+	"spectacle"
 	"spotify"
 	"telegram"
-	"typora"
-	"vlc"
-	"calibre"
-	"visual-studio-code"
-	"viscosity"
+	"tidal"
 	"transmit"
-	"soulver"
-	"skype"
-	"sequel-pro"
-	"roon"
-	"now"
-	"notion"
-	"hyper"
-	"fork"
-	"handbrake"
-	"dropbox"
-	"brave-browser"
-	"arq"
-	"app-cleaner"
-	"spectacle"
-	"daisydisk"
-	"font-inconsolata"
-	"adobe-creative-cloud"
+	"typora"
+	"viscosity"
+	"visual-studio-code"
+	"vlc"
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
 	brew cask install "$homebrew_cask_package"
 done
 
-# Install java8
+# Install java
 echo "Installing java8"
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
+brew cask install adoptopenjdk10
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
 # Install Composer
@@ -124,7 +125,7 @@ echo "Installing Composer"
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-# Installing Global Node Dependecies
+# Installing Global nodejs dependecies
 echo "Installing Global Node Dependecies"
 npm i -g netlify-cli
 npm i -g now
@@ -136,7 +137,7 @@ ssh-keygen -t rsa
 echo "Copied SSH key to clipboard - You can now add it to Github"
 pbcopy <~/.ssh/id_rsa.pub
 
-# Register the Global Gitignore file
+# Register the global gitignore file
 git config --global core.exludesfile ~/.dotfiles/.gitconfig_global
 
 # Complete
