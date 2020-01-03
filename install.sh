@@ -102,7 +102,6 @@ homebrew_cask_packages=(
 	"soulver"
 	"spectacle"
 	"spotify"
-	"telegram"
 	"tidal"
 	"transmit"
 	"typora"
