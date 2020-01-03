@@ -1,11 +1,12 @@
-alias cd..='cd ..'
 alias cls="clear"
 alias size="du -k -a | sort -n"
-alias iip="ifconfig |grep inet"
+alias iip="ifconfig | grep inet"
 alias eip="curl icanhazip.com"
 
 # Git
 alias gitlog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gitlogtoday="git log --author=urbansanden --no-merges --since="6am" --pretty=oneline --abbrev-commit"
+alias gitlog10="git log --pretty=oneline --abbrev-commit -10"
 alias gb="git branch | grep '^\*' | cut -d' ' -f2 | pbcopy"
 
 # Docker
