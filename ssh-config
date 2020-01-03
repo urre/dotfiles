@@ -2,15 +2,14 @@
 Host *
 IPQoS=throughput
 
-#Using multiple Bitbucket accounts
-#urre Bitbucket
+# Multiple Bitbucket accounts personal/work
+
 Host bitbucket.org-urre
   HostName bitbucket.org
   User git
   IdentityFile ~/.ssh/urre-bitbucket
   IdentitiesOnly yes
 
-#urbansanden Bitbucket
 Host bitbucket.org-urbansanden
   HostName bitbucket.org
   User git
