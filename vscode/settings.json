@@ -1,0 +1,97 @@
+{
+	"editor.fontSize": 16,
+	"editor.fontFamily": "'IBM Plex Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontWeight": "300",
+	"search.useIgnoreFiles": true,
+	"search.exclude": {
+		"**/.git": true,
+		"node_modules": true,
+		"tmp/**": true,
+		"assets/rev/": true,
+		"assets/build/": true,
+		".asset-cache": true,
+		"_site": true
+	},
+	"files.watcherExclude": {
+		"tmp/**": true,
+		"node_modules/**": true
+	},
+	"terminal.integrated.fontSize": 16,
+	"files.defaultLanguage": "html",
+	"explorer.openEditors.visible": 0,
+	"editor.trimAutoWhitespace": true,
+	"editor.formatOnSave": false,
+	"editor.formatOnPaste": false,
+	"editor.detectIndentation": true,
+	"editor.cursorBlinking": "phase",
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.autoIndent": false,
+	"editor.matchBrackets": false,
+	"workbench.startupEditor": "newUntitledFile",
+	"phpcs.enable": true,
+	"phpcs.standard": "WordPress",
+	"terminal.integrated.fontFamily": "SF Mono",
+	"window.zoomLevel": 0,
+	"window.restoreWindows": "all",
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"emmet.syntaxProfiles": {
+		"php": "html",
+		"blade": "html"
+	},
+	"emmet.showAbbreviationSuggestions": true,
+	"emmet.showExpandedAbbreviation": "always",
+	"emmet.triggerExpansionOnTab": true,
+	"emmet.includeLanguages": {
+		"vue-html": "html",
+		"vue": "html",
+		"blade": "html",
+		"javascript": "javascriptreact"
+	},
+	"editor.minimap.enabled": true,
+	"window.title": "${activeEditorMedium}",
+	"diffEditor.ignoreTrimWhitespace": true,
+	"editor.renderWhitespace": "all",
+	"search.location": "panel",
+	"files.trimFinalNewlines": true,
+	"npm.enableScriptExplorer": true,
+	"breadcrumbs.enabled": true,
+	"workbench.iconTheme": "eq-material-theme-icons",
+	"materialTheme.autoApplyIcons": false,
+	"stylelint.configOverrides": {
+		"ignoreFiles": ["/**/**/*.jsx", "/**/**/*.js"]
+	},
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"workbench.colorCustomizations": {},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"workbench.sideBar.location": "left",
+	"workbench.statusBar.visible": true,
+	"explorer.confirmDragAndDrop": false,
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[php]": {
+		"editor.defaultFormatter": "Sophisticode.php-formatter"
+	},
+	"workbench.activityBar.visible": true,
+	"editor.renderControlCharacters": true,
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"workbench.colorTheme": "Atom One Dark"
+}

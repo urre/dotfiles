@@ -142,5 +142,9 @@ pbcopy <~/.ssh/id_rsa.pub
 # Register the global gitignore file
 git config --global core.exludesfile ~/.dotfiles/.gitconfig_global
 
+# Symlink VS Code settings and keybindings
+ln -sf ~/.dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -sf ~/.dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+
 # Complete
 echo "Installation Complete"
