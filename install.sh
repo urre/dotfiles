@@ -41,7 +41,7 @@ fi
 
 # Install nvm
 echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
 
 # Install Homebrew Packages
 cd ~
@@ -92,6 +92,7 @@ homebrew_cask_packages=(
 	"hyper"
 	"insomnia"
 	"kap"
+	"magnet"
 	"ngrok"
 	"notion"
 	"now"
