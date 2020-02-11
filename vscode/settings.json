@@ -29,17 +29,11 @@
 	"editor.autoIndent": false,
 	"editor.matchBrackets": false,
 	"workbench.startupEditor": "newUntitledFile",
-	"phpcs.enable": true,
-	"phpcs.standard": "WordPress",
 	"terminal.integrated.fontFamily": "SF Mono",
 	"window.zoomLevel": 0,
 	"window.restoreWindows": "all",
 	"files.trimTrailingWhitespace": true,
 	"files.insertFinalNewline": true,
-	"emmet.syntaxProfiles": {
-		"php": "html",
-		"blade": "html"
-	},
 	"emmet.showAbbreviationSuggestions": true,
 	"emmet.showExpandedAbbreviation": "always",
 	"emmet.triggerExpansionOnTab": true,
@@ -53,31 +47,31 @@
 	"window.title": "${activeEditorMedium}",
 	"diffEditor.ignoreTrimWhitespace": true,
 	"editor.renderWhitespace": "all",
-	"search.location": "panel",
 	"files.trimFinalNewlines": true,
 	"npm.enableScriptExplorer": true,
 	"breadcrumbs.enabled": true,
 	"workbench.iconTheme": "eq-material-theme-icons",
-	"materialTheme.autoApplyIcons": false,
-	"stylelint.configOverrides": {
-		"ignoreFiles": ["/**/**/*.jsx", "/**/**/*.js"]
-	},
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"workbench.colorCustomizations": {},
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[scss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
 	"workbench.sideBar.location": "left",
 	"workbench.statusBar.visible": true,
+	"stylelint.configOverrides": {
+		"ignoreFiles": [
+			"/**/**/*.jsx",
+			"/**/**/*.js"
+		]
+	},
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features",
+	},
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
 	"explorer.confirmDragAndDrop": false,
 	"[javascriptreact]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -85,13 +79,7 @@
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"[php]": {
-		"editor.defaultFormatter": "Sophisticode.php-formatter"
-	},
 	"workbench.activityBar.visible": true,
 	"editor.renderControlCharacters": true,
-	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
 	"workbench.colorTheme": "Atom One Dark"
 }
