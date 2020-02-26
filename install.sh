@@ -96,6 +96,7 @@ homebrew_cask_packages=(
 	"ngrok"
 	"notion"
 	"now"
+	"rocket"
 	"roon"
 	"sequel-pro"
 	"skype"
