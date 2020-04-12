@@ -81,5 +81,8 @@
 	},
 	"workbench.activityBar.visible": true,
 	"editor.renderControlCharacters": true,
-	"workbench.colorTheme": "SynthWave '84"
+	"workbench.colorTheme": "SynthWave '84",
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
