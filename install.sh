@@ -48,6 +48,7 @@ cd ~
 echo "Installing Homebrew packages"
 
 homebrew_packages=(
+	"circleci"
 	"ffmpeg"
 	"git-standup"
 	"git"
