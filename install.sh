@@ -133,6 +133,7 @@ mv composer.phar /usr/local/bin/composer
 # Installing Global nodejs dependecies
 echo "Installing Global Node Dependecies"
 npm i -g netlify-cli
+npm i -g gatsby-cli
 npm i -g now
 npm i -g serve
 
