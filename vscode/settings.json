@@ -81,8 +81,13 @@
 	},
 	"workbench.activityBar.visible": true,
 	"editor.renderControlCharacters": true,
-	"workbench.colorTheme": "SynthWave '84",
+	"workbench.colorTheme": "Atom One Dark",
 	"[jsonc]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+	"php-cs-fixer.lastDownload": 1587650176795,
+	"[php]": {
+		"editor.defaultFormatter": "junstyle.php-cs-fixer"
 	}
 }
