@@ -34,6 +34,7 @@ alias dockerdelete='docker rm $(docker ps -a -q)'
 alias dockerdeleteimages='docker rmi $(docker images -q)'
 alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
+alias du='docker-compose up -d'
 
 # npm
 alias nu='npm uninstall'
