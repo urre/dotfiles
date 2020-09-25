@@ -130,12 +130,9 @@ echo "Installing Composer"
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-# Installing Global nodejs dependecies
-echo "Installing Global Node Dependecies"
-npm i -g netlify-cli
-npm i -g gatsby-cli
-npm i -g now
-npm i -g serve
+# Installing global node.js packages
+echo "Installing Global node.js packages"
+npm i -g gatsby-cli netlify-cli now serve http-server -g
 
 # Generate SSH key
 echo "Generating SSH keys"
