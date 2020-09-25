@@ -36,6 +36,11 @@ alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
 alias du='docker-compose up -d'
 
+# Standup
+alias stuw='cd ~/projects/twobo && git standup -a "Urban" -s'
+alias stuwm='cd ~/projects/twobo && git standup -a -d 3 "Urban" -s'
+alias stup='cd ~/projects && git standup -a "Urban" -s'
+
 # npm
 alias nu='npm uninstall'
 
