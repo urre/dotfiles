@@ -77,9 +77,11 @@ function mont() {
 
 # Annotate two images with "Before" and "After". Then merge two images side by side. Upload to Cloudinary if upload flag passed
 function amont() {
+
+  # I store my screenshots on the desktop, so start here
   cd ~/desktop
 
-  # # Add the Before/After text
+  # Add the Before/After text
   convert "$1" -undercolor white -pointsize 96 -fill red  -gravity Northwest -annotate 0 'Before' "$1"
   convert "$2" -undercolor white -pointsize 96 -fill "#78BE21"  -gravity Northwest -annotate 0 'After' "$2"
 
@@ -87,13 +89,14 @@ function amont() {
   montage -background '#f2f2f2' -geometry 1280x720+0+0 1.jpg 2.jpg merged.jpg;
   open -a Preview ~/desktop/merged.jpg
 
-  # Upload to Cloudinary if upload flag passed
+  # Upload to CDN if upload flag passed
   if [ "$3" = 'upload' ]
   then
     DIR=$( cd ~/.dotfiles && pwd )
     source "$DIR/.env"
     CLOUDINARY_URL=$(echo "$CLOUDINARY_URL")
     export CLOUDINARY_URL
+    # Upload to Cloudinary → copy HTTPS image link to clipboard
     cld uploader upload ~/desktop/merged.jpg | jq -r '.secure_url' | pbcopy
   fi
 
