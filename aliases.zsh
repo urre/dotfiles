@@ -36,13 +36,16 @@ alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
 alias du='docker-compose up -d'
 
-# Standup
-alias stuw='cd ~/projects/twobo && git standup -a "Urban" -s'
-alias stuwm='cd ~/projects/twobo && git standup -a -d 3 "Urban" -s'
-alias stup='cd ~/projects && git standup -a "Urban" -s'
+# Standup work
+alias supcurity='cd ~/projects/twobo && git standup -a "Urban" -s -m 3'
+alias supcurityweekend='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 3'
+alias supcurityall='cd ~/projects/twobo && git standup -a "all" -m 3'
+alias supcurityweekendall='cd ~/projects/twobo && git standup -a "all" -d 3 -m 3'
 
-# npm
-alias nu='npm uninstall'
+# Standup personal
+alias suppersonal='cd ~/projects && git standup -a "Urban" -s -m 3'
+alias suppersonalweekend='cd ~/projects && git standup -a "Urban" -d 3 -s -m 3'
+alias suppersonalall='cd ~/projects && git standup -a "all" -s -m 3'
 
 # Open in VS Code
 function code {
