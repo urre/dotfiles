@@ -1,6 +1,6 @@
 {
 	"editor.fontSize": 16,
-	"editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
 	"editor.fontWeight": "300",
 	"search.useIgnoreFiles": true,
 	"search.exclude": {
@@ -19,6 +19,7 @@
 	"terminal.integrated.fontSize": 16,
 	"files.defaultLanguage": "html",
 	"explorer.openEditors.visible": 0,
+	"explorer.compactFolders": false,
 	"editor.trimAutoWhitespace": true,
 	"editor.formatOnSave": false,
 	"editor.formatOnPaste": false,
@@ -87,7 +88,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-	"php-cs-fixer.lastDownload": 1600956671105,
+	"php-cs-fixer.lastDownload": 1607933045511,
 	"[php]": {
 		"editor.defaultFormatter": "junstyle.php-cs-fixer"
 	},
