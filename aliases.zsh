@@ -67,6 +67,32 @@ function port() {
 
 # Merge two images side by side, then open in Preview
 function mont() {
-  montage -background '#f2f2f2' -geometry 100% ~/desktop/"$1" ~/desktop/"$2" ~/desktop/merged.png;
-  open -a Preview ~/desktop/merged.png
+  montage -background '#f2f2f2' -geometry 100% ~/desktop/"$1" ~/desktop/"$2" ~/desktop/merged.jpg;
+  open -a Preview ~/desktop/merged.jpg
+}
+
+
+# Annotate two images with "Before" and "After". Then merge two images side by side. Upload to Cloudinary if upload flag passed
+function amont() {
+  cd ~/desktop
+
+  # # Add the Before/After text
+  convert "$1" -undercolor white -pointsize 96 -fill red  -gravity Northwest -annotate 0 'Before' "$1"
+  convert "$2" -undercolor white -pointsize 96 -fill "#78BE21"  -gravity Northwest -annotate 0 'After' "$2"
+
+  # Merge the two images side by side, open the image in Preview
+  montage -background '#f2f2f2' -geometry 1280x720+0+0 1.jpg 2.jpg merged.jpg;
+  open -a Preview ~/desktop/merged.jpg
+
+  # Upload to Cloudinary if upload flag passed
+  if [ "$3" = 'upload' ]
+  then
+    DIR=$( cd ~/.dotfiles && pwd )
+    source "$DIR/.env"
+    CLOUDINARY_URL=$(echo "$CLOUDINARY_URL")
+    export CLOUDINARY_URL
+    cld uploader upload ~/desktop/merged.jpg | jq -r '.secure_url' | pbcopy
+  fi
+
+
 }
