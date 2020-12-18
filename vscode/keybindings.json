@@ -1,82 +1,94 @@
 [
-	{
-		"key": "cmd+alt+t",
-		"command": "workbench.action.terminal.toggleTerminal"
-	},
-	{
-		"key": "cmd+k",
-		"command": "workbench.action.toggleSidebarVisibility"
-	},
-	{
-		"key": "cmd+shift+l",
-		"command": "workbench.action.toggleZenMode"
-	},
-	{
-		"key": "cmd+l",
-		"command": "editor.action.addCommentLine"
-	},
-	{
-		"key": "shift+cmd+d",
-		"command": "editor.action.copyLinesDownAction"
-	},
-	{
-		"key": "cmd+l",
-		"command": "expandLineSelection"
-	},
-	{
-		"key": "cmd+ctrl+up",
-		"command": "editor.action.moveLinesUpAction"
-	},
-	{
-		"key": "cmd+ctrl+down",
-		"command": "editor.action.moveLinesDownAction"
-	},
-	{
-		"key": "cmd+d",
-		"command": "editor.action.addSelectionToNextFindMatch",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+cmd+g",
-		"command": "editor.action.selectHighlights",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "cmd+e",
-		"command": "editor.action.commentLine",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "cmd+j",
-		"command": "editor.action.blockComment",
-		"when": "editorTextFocus && !editorReadonly"
-	},
-	{
-		"key": "cmd+shift+s",
-		"command": "workbench.action.openSettingsJson"
-	},
-	{
-		"key": "cmd+shift+m",
-		"command": "editor.action.insertSnippet",
-		"when": "editorTextFocus",
-		"args": {
-			"snippet": "@media (min-width: 40em) {"
-		}
-	},
-	{
-		"key": "cmd+shift+u",
-		"command": "editor.action.insertSnippet",
-		"when": "editorTextFocus",
-		"args": {
-			"snippet": "https://source.unsplash.com/random/1200x600"
-		}
-	},
-	{
-		"key": "cmd+shift+l",
-		"command": "editor.action.insertSnippet",
-		"when": "editorTextFocus",
-		"args": {
-			"snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
-		}
-	}
+  {
+    "key": "cmd+alt+t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "cmd+k",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+shift+l",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "cmd+l",
+    "command": "editor.action.addCommentLine"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "editor.action.copyLinesDownAction"
+  },
+  {
+    "key": "cmd+l",
+    "command": "expandLineSelection"
+  },
+  {
+    "key": "cmd+ctrl+up",
+    "command": "editor.action.moveLinesUpAction"
+  },
+  {
+    "key": "cmd+ctrl+down",
+    "command": "editor.action.moveLinesDownAction"
+  },
+  {
+    "key": "cmd+d",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+g",
+    "command": "editor.action.selectHighlights",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+e",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+j",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+shift+s",
+    "command": "workbench.action.openSettingsJson"
+  },
+  {
+    "key": "cmd+shift+m",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "@media (min-width: 40em) {"
+    }
+  },
+  {
+    "key": "cmd+shift+u",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "https://source.unsplash.com/random/1200x600"
+    }
+  },
+  {
+    "key": "cmd+shift+l",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
+    }
+  },
+  {
+    "key": "cmd+=",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "cmd+-",
+    "command": "editor.action.fontZoomOut"
+  },
+  {
+    "key": "cmd+0",
+    "command": "editor.action.fontZoomReset"
+  }
 ]
