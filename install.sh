@@ -61,6 +61,7 @@ homebrew_packages=(
 	"php"
 	"pipenv"
 	"python3"
+	"starship"
 	"yarn"
 )
 
