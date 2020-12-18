@@ -69,13 +69,15 @@ function port() {
 }
 
 # Merge two images side by side, then open in Preview
+# Usage example: mont 1.jpg 2.jpg
 function mont() {
-  montage -background '#f2f2f2' -geometry 100% ~/desktop/"$1" ~/desktop/"$2" ~/desktop/merged.jpg;
+  montage -background '#f2f2f2' -geometry 1280x720+0+0 ~/desktop/"$1" ~/desktop/"$2" ~/desktop/merged.jpg;
   open -a Preview ~/desktop/merged.jpg
 }
 
 
 # Annotate two images with "Before" and "After". Then merge two images side by side. Upload to Cloudinary if upload flag passed
+# Usage example: amont 1.jpg 2.jpg upload
 function amont() {
 
   # I store my screenshots on the desktop, so start here
@@ -87,6 +89,8 @@ function amont() {
 
   # Merge the two images side by side, open the image in Preview
   montage -background '#f2f2f2' -geometry 1280x720+0+0 1.jpg 2.jpg merged.jpg;
+
+  # Open in Preview
   open -a Preview ~/desktop/merged.jpg
 
   # Upload to CDN if upload flag passed
