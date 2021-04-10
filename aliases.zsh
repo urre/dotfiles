@@ -84,14 +84,15 @@ function amont() {
   cd ~/desktop
 
   # Add the Before/After text
-  convert "$1" -undercolor white -pointsize 96 -fill red  -gravity Northwest -annotate 0 'Before' "$1"
-  convert "$2" -undercolor white -pointsize 96 -fill "#78BE21"  -gravity Northwest -annotate 0 'After' "$2"
+  convert "$1" -undercolor white -pointsize 66 -fill red  -gravity Northwest -annotate 0 'Before' "$1"
+  convert "$2" -undercolor white -pointsize 66 -fill "#78BE21"  -gravity Northwest -annotate 0 'After' "$2"
 
   # Merge the two images side by side, open the image in Preview
-  montage -background '#f2f2f2' -geometry 1280x720+0+0 1.jpg 2.jpg merged.jpg;
+  # montage -background '#f2f2f2' -geometry 1280x720+0+0 1.jpg 2.jpg merged.jpg;
+  convert -background "#6e768f" 2.jpg +append \( 1.jpg \) -append -resize 1600x1600 result.jpg
 
   # Open in Preview
-  open -a Preview ~/desktop/merged.jpg
+  open -a Preview ~/desktop/result.jpg
 
   # Upload to CDN if upload flag passed
   if [ "$3" = 'upload' ]
