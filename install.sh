@@ -77,7 +77,6 @@ homebrew_cask_packages=(
 	"1Password"
 	"adobe-creative-cloud"
 	"alfred"
-	"app-cleaner"
 	"arq"
 	"brave-browser"
 	"calibre"
