@@ -75,7 +75,7 @@
   },
   "workbench.activityBar.visible": true,
   "editor.renderControlCharacters": true,
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "Atom One Light",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
