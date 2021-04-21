@@ -6,11 +6,10 @@ ZSH_CUSTOM=$DOTFILES
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# ZSH_THEME="alanpeabody"
-# ZSH_THEME="spaceship"
-
 # Plugins
 plugins=(git zsh-z gitfast)
+plugins+=(zsh-better-npm-completion)
+
 source $ZSH/oh-my-zsh.sh
 
 # Nano as crontab editor
