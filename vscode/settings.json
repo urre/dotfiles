@@ -1,99 +1,123 @@
 {
-  "editor.fontSize": 16,
-  "editor.fontFamily": "'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontWeight": "300",
-  "search.useIgnoreFiles": true,
-  "search.exclude": {
-    "**/.git": true,
-    "node_modules": true,
-    "tmp/**": true,
-    "assets/rev/": true,
-    "assets/build/": true,
-    ".asset-cache": true,
-    "_site": true
-  },
-  "files.watcherExclude": {
-    "tmp/**": true,
-    "node_modules/**": true
-  },
-  "terminal.integrated.fontSize": 16,
-  "files.defaultLanguage": "html",
-  "explorer.openEditors.visible": 0,
-  "explorer.compactFolders": false,
-  "editor.trimAutoWhitespace": true,
-  "editor.formatOnSave": false,
-  "editor.formatOnPaste": false,
-  "editor.detectIndentation": true,
-  "editor.cursorBlinking": "phase",
-  "editor.tabSize": 2,
-  "editor.insertSpaces": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "terminal.integrated.fontFamily": "SF Mono",
-  "window.restoreWindows": "all",
-  "window.newWindowDimensions": "inherit",
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "emmet.showAbbreviationSuggestions": true,
-  "emmet.showExpandedAbbreviation": "always",
-  "emmet.triggerExpansionOnTab": true,
-  "emmet.includeLanguages": {
-    "vue-html": "html",
-    "vue": "html",
-    "blade": "html",
-    "javascript": "javascriptreact"
-  },
-  "editor.minimap.enabled": false,
-  "window.title": "${activeEditorMedium}",
-  "diffEditor.ignoreTrimWhitespace": true,
-  "editor.renderWhitespace": "none",
-  "files.trimFinalNewlines": true,
-  "breadcrumbs.enabled": true,
-  "workbench.sideBar.location": "left",
-  "workbench.statusBar.visible": true,
-  "stylelint.configOverrides": {
-    "ignoreFiles": ["/**/**/*.jsx", "/**/**/*.js"]
-  },
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "explorer.confirmDragAndDrop": false,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.activityBar.visible": true,
-  "editor.renderControlCharacters": true,
-  "workbench.colorTheme": "Atom One Light",
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1617900926279,
-  "[php]": {
-    "editor.defaultFormatter": "junstyle.php-cs-fixer"
-  },
-  "explorer.confirmDelete": false,
-  "extensions.ignoreRecommendations": true,
-  "keyboard.touchbar.enabled": false,
-  "workbench.enableExperiments": false,
-  "workbench.tips.enabled": false,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
-  "htmlEndTagLabels.labelColor": "#495057"
+	"editor.fontSize": 16,
+	"editor.fontFamily": "'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontWeight": "300",
+	"search.useIgnoreFiles": true,
+	"search.exclude": {
+		"**/.git": true,
+		"node_modules": true,
+		"tmp/**": true,
+		"assets/rev/": true,
+		"assets/build/": true,
+		".asset-cache": true,
+		"_site": true
+	},
+	"files.watcherExclude": {
+		"tmp/**": true,
+		"node_modules/**": true
+	},
+	"terminal.integrated.fontSize": 16,
+	"files.defaultLanguage": "html",
+	"explorer.openEditors.visible": 0,
+	"explorer.compactFolders": false,
+	"editor.trimAutoWhitespace": true,
+	"editor.formatOnSave": false,
+	"editor.formatOnPaste": false,
+	"editor.detectIndentation": true,
+	"editor.cursorBlinking": "phase",
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"workbench.startupEditor": "newUntitledFile",
+	"terminal.integrated.fontFamily": "SF Mono",
+	"window.restoreWindows": "all",
+	"window.newWindowDimensions": "inherit",
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"emmet.includeLanguages": {
+		"vue-html": "html",
+		"vue": "html",
+		"blade": "html",
+		"javascript": "javascriptreact"
+	},
+	"editor.minimap.enabled": false,
+	"window.title": "${activeEditorMedium}",
+	"diffEditor.ignoreTrimWhitespace": true,
+	"editor.renderWhitespace": "none",
+	"files.trimFinalNewlines": true,
+	"breadcrumbs.enabled": true,
+
+	"workbench.statusBar.visible": true,
+	"stylelint.configOverrides": {
+		"ignoreFiles": ["/**/**/*.jsx", "/**/**/*.js"]
+	},
+	"[markdown]": {
+		"editor.fontFamily": "\"IBM Plex Mono\", \"Nono Sans\", monospace",
+		"editor.fontLigatures": true,
+		"editor.fontSize": 16,
+		"editor.lineHeight": 26,
+		"editor.wordWrap": "wordWrapColumn",
+		"editor.wordWrapColumn": 72,
+		"zenMode.centerLayout": true,
+		"editor.lineNumbers": "off",
+		"editor.quickSuggestions": false
+	},
+	"[mdx]": {
+		"editor.fontFamily": "\"IBM Plex Mono\", \"Nono Sans\", monospace",
+		"editor.fontLigatures": true,
+		"editor.fontSize": 16,
+		"editor.lineHeight": 26,
+		"editor.wordWrap": "wordWrapColumn",
+		"editor.wordWrapColumn": 72,
+		"zenMode.centerLayout": true,
+		"editor.lineNumbers": "off",
+		"editor.quickSuggestions": false
+	},
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"explorer.confirmDragAndDrop": false,
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"workbench.activityBar.visible": true,
+	"editor.renderControlCharacters": true,
+	"workbench.colorTheme": "Atom One Light",
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+	"php-cs-fixer.lastDownload": 1619097839701,
+	"[php]": {
+		"editor.defaultFormatter": "junstyle.php-cs-fixer"
+	},
+	"explorer.confirmDelete": false,
+	"extensions.ignoreRecommendations": true,
+	"keyboard.touchbar.enabled": false,
+	"workbench.enableExperiments": false,
+	"workbench.tips.enabled": false,
+	"workbench.editorAssociations": [
+		{
+			"viewType": "jupyter.notebook.ipynb",
+			"filenamePattern": "*.ipynb"
+		}
+	],
+	"htmlEndTagLabels.labelColor": "#495057",
+	"yaml.schemas": {
+		"file:///Users/urbansanden/.vscode/extensions/atlassian.atlascode-2.8.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+	},
+	"atlascode.jira.enabled": false,
+	"atlascode.bitbucket.enabled": true
 }
