@@ -102,12 +102,12 @@
   "keyboard.touchbar.enabled": false,
   "workbench.enableExperiments": false,
   "workbench.tips.enabled": false,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
   "htmlEndTagLabels.labelColor": "#495057",
-  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar"
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
