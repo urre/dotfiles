@@ -28,6 +28,9 @@ alias gbt="git branch | wc -l"
 # Number of commits per author on all branches
 alias gct="git shortlog -s -n --all --no-merges --since='1 Jan, 2019'"
 
+# Show files changes, insertions and deletions in one line
+alias gshort="git diff --shortstat | sed '/^\s*$/d'"
+
 # Docker
 alias dockerkill='docker kill $(docker ps -q)'
 alias dockerdelete='docker rm $(docker ps -a -q)'
