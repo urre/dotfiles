@@ -44,9 +44,6 @@
   "breadcrumbs.enabled": true,
 
   "workbench.statusBar.visible": true,
-  "stylelint.configOverrides": {
-    "ignoreFiles": ["/**/**/*.jsx", "/**/**/*.js"]
-  },
   "[markdown]": {
     "editor.fontFamily": "\"IBM Plex Mono\", \"Nono Sans\", monospace",
     "editor.fontLigatures": true,
@@ -64,7 +61,6 @@
     "editor.lineHeight": 26,
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 72,
-    "zenMode.centerLayout": true,
     "editor.lineNumbers": "on",
     "editor.quickSuggestions": false
   },
@@ -107,7 +103,5 @@
   },
   "htmlEndTagLabels.labelColor": "#495057",
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+  "liveServer.settings.donotShowInfoMsg": true,
 }
