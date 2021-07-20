@@ -1,4 +1,5 @@
 [
+
   {
     "key": "cmd+alt+t",
     "command": "workbench.action.terminal.toggleTerminal"
@@ -90,5 +91,9 @@
   {
     "key": "cmd+0",
     "command": "editor.action.fontZoomReset"
+  },
+  {
+    "key": "shift+cmd+[BracketLeft]",
+    "command": "editor.action.reindentlines"
   }
 ]
