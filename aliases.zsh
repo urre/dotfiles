@@ -104,7 +104,7 @@ function amont() {
     source "$DIR/.env"
     CLOUDINARY_URL=$(echo "$CLOUDINARY_URL")
     export CLOUDINARY_URL
-    # Upload to Cloudinary → copy HTTPS image link to clipboard
+    # Upload to Cloudinary and then copy the HTTPS image link to clipboard (using the cld uploader)
     cld uploader upload ~/desktop/merged.jpg | jq -r '.secure_url' | pbcopy
   fi
 
