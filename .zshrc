@@ -3,6 +3,9 @@ export DOTFILES=$HOME/.dotfiles
 
 ZSH_CUSTOM=$DOTFILES
 
+# Path to Curity Identiy Server CLI binary (idsvr)
+export PATH=$PATH:/Users/urbansanden/projects/twobo/identity-server/dist/bin/
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
