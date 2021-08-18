@@ -121,9 +121,8 @@ done
 # Install java
 echo "Installing java"
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
-brew cask install adoptopenjdk10
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+brew install openjdk@8
+brew install openjdk@11
 
 # Install Composer
 echo "Installing Composer"

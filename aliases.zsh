@@ -66,6 +66,7 @@ function take() {
   mkdir $1 && cd $_
 }
 
+
 # Show whats running on port X
 function port() {
   lsof -nP -iTCP:"$1"
@@ -109,4 +110,22 @@ function amont() {
   fi
 
 
+}
+
+# Java
+# The openjdk@8 is also a keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
+# sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+# https://docs.brew.sh/FAQ#what-does-keg-only-mean
+
+sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+
+# Switch Java versions
+function java8() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+function java11() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
 }

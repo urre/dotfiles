@@ -9,6 +9,9 @@ export PATH=$PATH:/Users/urbansanden/projects/twobo/identity-server/dist/bin/
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Path to Java 8
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+
 # Plugins
 plugins=(git zsh-z gitfast)
 plugins+=(zsh-better-npm-completion)
