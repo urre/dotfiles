@@ -41,7 +41,7 @@ fi
 
 # Install nvm
 echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.38.0/install.sh | bash
 
 # Install Homebrew Packages
 cd ~
@@ -115,11 +115,11 @@ homebrew_cask_packages=(
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
-	brew cask install "$homebrew_cask_package"
+	brew install "$homebrew_cask_package"
 done
 
-# Install java
-echo "Installing java"
+# Install Java
+echo "Installing Java"
 brew tap AdoptOpenJDK/openjdk
 brew install openjdk@8
 brew install openjdk@11
@@ -129,9 +129,9 @@ echo "Installing Composer"
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-# Installing global node.js packages
-echo "Installing Global node.js packages"
-npm i -g gatsby-cli netlify-cli now serve http-server -g
+# Installing global Node.js packages
+echo "Installing Global Node.js packages"
+npm i -g gatsby-cli netlify-cli vercel serve http-server -g
 
 # Generate SSH key
 echo "Generating SSH keys"
