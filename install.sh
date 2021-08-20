@@ -110,6 +110,7 @@ homebrew_cask_packages=(
 	"transmit"
 	"typora"
 	"viscosity"
+	"git-standup"
 	"visual-studio-code"
 	"vlc"
 )
