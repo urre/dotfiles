@@ -1,5 +1,4 @@
 [
-
   {
     "key": "cmd+alt+t",
     "command": "workbench.action.terminal.toggleTerminal"
@@ -81,19 +80,7 @@
     }
   },
   {
-    "key": "cmd+=",
-    "command": "editor.action.fontZoomIn"
-  },
-  {
-    "key": "cmd+-",
-    "command": "editor.action.fontZoomOut"
-  },
-  {
-    "key": "cmd+0",
-    "command": "editor.action.fontZoomReset"
-  },
-  {
-    "key": "shift+cmd+[BracketLeft]",
-    "command": "editor.action.reindentlines"
+    "key": "cmd+alt+m",
+    "command": "workbench.action.toggleMaximizedPanel"
   }
 ]

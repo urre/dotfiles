@@ -36,7 +36,6 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "editor.minimap.enabled": false,
   "window.title": "${activeEditorMedium}",
   "diffEditor.ignoreTrimWhitespace": true,
   "editor.renderWhitespace": "none",
@@ -86,7 +85,7 @@
   },
   "workbench.activityBar.visible": true,
   "editor.renderControlCharacters": true,
-  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.colorTheme": "GitHub Dark",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
