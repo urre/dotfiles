@@ -4,7 +4,9 @@ alias iip="ifconfig | grep inet"
 alias eip="curl icanhazip.com"
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
-# Git log
+# Git language in English
+alias git="LANG=en_US.UTF.8 git"
+
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 # Git log today
