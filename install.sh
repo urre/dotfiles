@@ -87,6 +87,7 @@ homebrew_cask_packages=(
 	"font-ibm-plex"
 	"font-roboto-mono"
 	"font-roboto"
+	"font-jetbrains-mono"
 	"fork"
 	"google-chrome"
 	"handbrake"
@@ -112,7 +113,7 @@ homebrew_cask_packages=(
 	"viscosity"
 	"git-standup"
 	"visual-studio-code"
-	"vlc"
+	"vlc",
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
