@@ -4,6 +4,8 @@ alias iip="ifconfig | grep inet"
 alias eip="curl icanhazip.com"
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
+# Git
+
 # Git language in English
 alias git="LANG=en_US.UTF.8 git"
 
@@ -32,6 +34,17 @@ alias gct="git shortlog -s -n --all --no-merges --since='1 Jan, 2019'"
 
 # Show files changes, insertions and deletions in one line
 alias gshort="git diff --shortstat | sed '/^\s*$/d'"
+
+# Show size of the current changed files in git status
+alias gst="git_status_size"
+
+git_status_size(){
+    git status --porcelain | awk '{print $2}' | xargs ls -hl | sort -r -h | awk '{print $5 "\t" $9}'
+}
+
+# Open Discogs with currently playing album
+alias discogs="cd ~/projects/labs/discogs-nowplaying && npm start"
+
 
 # Docker
 alias dockerkill='docker kill $(docker ps -q)'
@@ -71,6 +84,12 @@ function take() {
 # Show whats running on port X
 function port() {
   lsof -nP -iTCP:"$1"
+}
+
+# Kill processes at a given port
+function killport {
+    echo '🚨 Killing all processes at port' $1
+    lsof -ti tcp:$1 | xargs kill
 }
 
 # Merge two images side by side, then open in Preview
