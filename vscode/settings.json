@@ -1,107 +1,93 @@
 {
-	"editor.fontWeight": "300",
-	"diffEditor.ignoreTrimWhitespace": true,
-	"editor.detectIndentation": true,
-  "editor.guides.bracketPairs": true,
-	"files.watcherExclude": {
-		"**/node_modules/**": true,
-		"**/.git/objects/**": true
-	},
-	"[scss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter.notebook.ipynb"
-	},
-	"files.insertFinalNewline": true,
-	"[php]": {
-		"editor.defaultFormatter": "junstyle.php-cs-fixer"
-	},
-	"editor.fontFamily": "'JetBrainsMono-Regular', 'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
-	"liveServer.settings.donotShowInfoMsg": true,
-	"search.useIgnoreFiles": true,
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"explorer.confirmDragAndDrop": false,
-	"editor.formatOnSave": false,
-	"editor.renderWhitespace": "none",
-	"editor.accessibilitySupport": "off",
-	"php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-	"[html]": {
-		"editor.defaultFormatter": "vscode.html-language-features"
-	},
-	"editor.renderControlCharacters": true,
-	"terminal.integrated.fontFamily": "SF Mono",
-	"editor.fontSize": 16,
-	"files.defaultLanguage": "html",
-	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"editor.tabSize": 2,
-	"search.exclude": {
-		"tmp/**": true,
-		"assets/build/": true,
-		"assets/rev/": true,
-		".asset-cache": true,
-		"**/.git": true,
-		"node_modules": true,
-		"_site": true
-	},
-	"window.newWindowDimensions": "inherit",
-	"files.trimFinalNewlines": true,
-	"editor.insertSpaces": false,
-	"editor.trimAutoWhitespace": true,
-	"workbench.statusBar.visible": true,
-	"[markdown]": {
-		"editor.lineHeight": 26,
-		"editor.wordWrapColumn": 72,
-		"editor.lineNumbers": "off",
-		"editor.fontSize": 16,
-		"editor.quickSuggestions": false,
-		"editor.fontFamily": "\"IBM Plex Mono\", \"Nono Sans\", monospace",
-		"editor.fontLigatures": true,
-		"editor.wordWrap": "wordWrapColumn"
-	},
-	"explorer.compactFolders": false,
-	"workbench.activityBar.visible": true,
-	"files.trimTrailingWhitespace": true,
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[mdx]": {
-		"editor.lineHeight": 26,
-		"editor.wordWrapColumn": 72,
-		"editor.lineNumbers": "on",
-		"editor.fontSize": 16,
-		"editor.quickSuggestions": false,
-		"editor.fontFamily": "\"IBM Plex Mono\", \"Nono Sans\", monospace",
-		"editor.fontLigatures": true,
-		"editor.wordWrap": "wordWrapColumn"
-	},
-	"emmet.includeLanguages": {
-		"javascript": "javascriptreact"
-	},
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"extensions.ignoreRecommendations": true,
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"window.restoreWindows": "all",
-	"htmlEndTagLabels.labelColor": "#495057",
-	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"editor.formatOnPaste": false,
-	"explorer.openEditors.visible": 0,
-	"explorer.confirmDelete": false,
-	"window.title": "${activeEditorMedium}",
-	"workbench.tips.enabled": false,
-	"editor.cursorBlinking": "phase",
-	"keyboard.touchbar.enabled": false,
-	"workbench.colorTheme": "GitHub Dark",
-	"workbench.enableExperiments": false,
-	"terminal.integrated.fontSize": 16,
-	"workbench.startupEditor": "newUntitledFile",
-	"breadcrumbs.enabled": true
+  "files.insertFinalNewline" : true,
+  "window.restoreWindows" : "all",
+  "editor.guides.bracketPairs" : true,
+  "explorer.confirmDragAndDrop" : false,
+  "editor.renderControlCharacters" : true,
+  "editor.fontFamily" : "'JetBrainsMono-Regular', 'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+  "[scss]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "editor.formatOnPaste" : false,
+  "window.openFoldersInNewWindow": "on",
+  "editor.renderWhitespace" : "none",
+  "editor.trimAutoWhitespace" : true,
+  "[html]" : {
+    "editor.defaultFormatter" : "vscode.html-language-features"
+  },
+  "workbench.statusBar.visible" : true,
+  "editor.bracketPairColorization.enabled": true,
+  "diffEditor.ignoreTrimWhitespace" : true,
+  "editor.fontWeight" : "300",
+  "explorer.compactFolders" : false,
+  "[javascriptreact]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "files.trimFinalNewlines" : true,
+  "extensions.ignoreRecommendations" : true,
+  "search.exclude" : {
+    "tmp\/**" : true,
+    "assets\/build\/" : true,
+    "assets\/rev\/" : true,
+    ".asset-cache" : true,
+    "**\/.git" : true,
+    "node_modules" : true,
+    "_site" : true
+  },
+  "workbench.colorTheme" : "Rosé Pine Moon",
+  "emmet.includeLanguages" : {
+    "javascript" : "javascriptreact"
+  },
+  "workbench.startupEditor" : "newUntitledFile",
+  "workbench.enableExperiments" : false,
+  "workbench.tips.enabled" : false,
+  "files.trimTrailingWhitespace" : true,
+  "editor.formatOnSave" : false,
+  "explorer.confirmDelete" : false,
+  "keyboard.touchbar.enabled" : false,
+  "files.watcherExclude" : {
+    "**\/node_modules\/**" : true,
+    "**\/.git\/objects\/**" : true
+  },
+  "javascript.updateImportsOnFileMove.enabled" : "always",
+  "[css]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.fontFamily": "SF Mono",
+  "window.title" : "${activeEditorMedium}",
+  "editor.insertSpaces" : false,
+  "breadcrumbs.enabled" : true,
+  "[mdx]" : {
+    "editor.lineHeight" : 26,
+    "editor.wordWrapColumn" : 72,
+    "editor.lineNumbers" : "on",
+    "editor.fontSize" : 16,
+    "editor.quickSuggestions" : false,
+    "editor.fontFamily" : "\"IBM Plex Mono\", \"Nono Sans\", monospace",
+    "editor.fontLigatures" : true,
+    "editor.wordWrap" : "wordWrapColumn"
+  },
+  "[javascript]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "editor.fontSize" : 16,
+  "explorer.openEditors.visible" : 0,
+  "htmlEndTagLabels.labelColor" : "#495057",
+  "editor.accessibilitySupport" : "off",
+  "search.useIgnoreFiles" : true,
+  "window.newWindowDimensions" : "inherit",
+  "[jsonc]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.fontSize" : 16,
+  "editor.tabSize" : 2,
+  "editor.cursorBlinking" : "phase",
+  "editor.detectIndentation" : true,
+  "[json]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "files.defaultLanguage": "html",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  }
 }
