@@ -10,7 +10,7 @@
   },
   "editor.formatOnPaste" : false,
   "window.openFoldersInNewWindow": "on",
-  "editor.renderWhitespace" : "none",
+  "editor.renderWhitespace" : "all",
   "editor.trimAutoWhitespace" : true,
   "[html]" : {
     "editor.defaultFormatter" : "vscode.html-language-features"
@@ -34,7 +34,7 @@
     "node_modules" : true,
     "_site" : true
   },
-  "workbench.colorTheme" : "Rosé Pine Moon",
+  "workbench.colorTheme" : "GitHub Dark",
   "emmet.includeLanguages" : {
     "javascript" : "javascriptreact"
   },
@@ -89,5 +89,6 @@
   "files.defaultLanguage": "html",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
-  }
+  },
+  "editor.minimap.enabled": false
 }
