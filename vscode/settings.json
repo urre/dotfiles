@@ -1,30 +1,12 @@
 {
-  "files.insertFinalNewline" : true,
-  "window.restoreWindows" : "all",
-  "editor.guides.bracketPairs" : true,
-  "explorer.confirmDragAndDrop" : false,
-  "editor.renderControlCharacters" : true,
-  "editor.fontFamily" : "'JetBrainsMono-Regular', 'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
-  "[scss]" : {
-    "editor.defaultFormatter" : "esbenp.prettier-vscode"
-  },
-  "editor.formatOnPaste" : false,
-  "window.openFoldersInNewWindow": "on",
-  "editor.renderWhitespace" : "all",
-  "editor.trimAutoWhitespace" : true,
-  "[html]" : {
-    "editor.defaultFormatter" : "vscode.html-language-features"
-  },
-  "workbench.statusBar.visible" : true,
-  "editor.bracketPairColorization.enabled": true,
   "diffEditor.ignoreTrimWhitespace" : true,
-  "editor.fontWeight" : "300",
-  "explorer.compactFolders" : false,
-  "[javascriptreact]" : {
+  "editor.accessibilitySupport" : "off",
+  "editor.tabSize" : 2,
+  "workbench.enableExperiments" : false,
+  "editor.trimAutoWhitespace" : true,
+  "[css]" : {
     "editor.defaultFormatter" : "esbenp.prettier-vscode"
   },
-  "files.trimFinalNewlines" : true,
-  "extensions.ignoreRecommendations" : true,
   "search.exclude" : {
     "tmp\/**" : true,
     "assets\/build\/" : true,
@@ -34,29 +16,20 @@
     "node_modules" : true,
     "_site" : true
   },
-  "workbench.colorTheme" : "GitHub Dark",
-  "emmet.includeLanguages" : {
-    "javascript" : "javascriptreact"
-  },
-  "workbench.startupEditor" : "newUntitledFile",
-  "workbench.enableExperiments" : false,
-  "workbench.tips.enabled" : false,
-  "files.trimTrailingWhitespace" : true,
-  "editor.formatOnSave" : false,
-  "explorer.confirmDelete" : false,
-  "keyboard.touchbar.enabled" : false,
-  "files.watcherExclude" : {
-    "**\/node_modules\/**" : true,
-    "**\/.git\/objects\/**" : true
-  },
-  "javascript.updateImportsOnFileMove.enabled" : "always",
-  "[css]" : {
+  "[scss]" : {
     "editor.defaultFormatter" : "esbenp.prettier-vscode"
   },
-  "terminal.integrated.fontFamily": "SF Mono",
-  "window.title" : "${activeEditorMedium}",
-  "editor.insertSpaces" : false,
-  "breadcrumbs.enabled" : true,
+  "editor.cursorBlinking" : "phase",
+  // "editor.hover.enabled": false,
+  "explorer.confirmDragAndDrop" : false,
+  "editor.detectIndentation" : true,
+  "editor.fontWeight" : "300",
+  "files.trimTrailingWhitespace" : true,
+  "files.insertFinalNewline" : true,
+  "editor.fontFamily" : "'JetBrainsMono-Regular', 'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+  "[javascript]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
   "[mdx]" : {
     "editor.lineHeight" : 26,
     "editor.wordWrapColumn" : 72,
@@ -67,28 +40,55 @@
     "editor.fontLigatures" : true,
     "editor.wordWrap" : "wordWrapColumn"
   },
-  "[javascript]" : {
-    "editor.defaultFormatter" : "esbenp.prettier-vscode"
-  },
-  "editor.fontSize" : 16,
-  "explorer.openEditors.visible" : 0,
-  "htmlEndTagLabels.labelColor" : "#495057",
-  "editor.accessibilitySupport" : "off",
-  "search.useIgnoreFiles" : true,
-  "window.newWindowDimensions" : "inherit",
+  "keyboard.touchbar.enabled" : false,
+  "explorer.confirmDelete" : false,
   "[jsonc]" : {
     "editor.defaultFormatter" : "esbenp.prettier-vscode"
   },
-  "terminal.integrated.fontSize" : 16,
-  "editor.tabSize" : 2,
-  "editor.cursorBlinking" : "phase",
-  "editor.detectIndentation" : true,
+  "explorer.compactFolders" : false,
+  "editor.renderWhitespace" : "all",
+  "editor.insertSpaces" : false,
+  "emmet.includeLanguages" : {
+    "javascript" : "javascriptreact"
+  },
+  "extensions.ignoreRecommendations" : true,
+  "editor.guides.bracketPairs" : true,
+  "editor.renderControlCharacters" : true,
+  "files.defaultLanguage" : "html",
   "[json]" : {
     "editor.defaultFormatter" : "esbenp.prettier-vscode"
   },
-  "files.defaultLanguage": "html",
-  "terminal.integrated.env.osx": {
+  "[html]" : {
+    "editor.defaultFormatter" : "vscode.html-language-features"
+  },
+  "explorer.openEditors.visible" : 0,
+  "window.openFoldersInNewWindow" : "on",
+  "editor.minimap.enabled" : false,
+  "window.title" : "${activeEditorMedium}",
+  "terminal.integrated.fontSize" : 16,
+  "javascript.updateImportsOnFileMove.enabled" : "always",
+  "editor.formatOnPaste" : false,
+  "editor.fontSize" : 16,
+  "terminal.integrated.fontFamily" : "SF Mono",
+  "files.trimFinalNewlines" : true,
+  "workbench.startupEditor" : "newUntitledFile",
+  "htmlEndTagLabels.labelColor" : "#495057",
+  "editor.formatOnSave" : false,
+  "[javascriptreact]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "window.newWindowDimensions" : "inherit",
+  "search.useIgnoreFiles" : true,
+  "workbench.tips.enabled" : false,
+  "terminal.integrated.env.osx" : {
     "FIG_NEW_SESSION": "1"
   },
-  "editor.minimap.enabled": false
+  "editor.bracketPairColorization.enabled" : true,
+  "files.watcherExclude" : {
+    "**\/node_modules\/**" : true,
+    "**\/.git\/objects\/**" : true
+  },
+  "breadcrumbs.enabled" : true,
+  "workbench.statusBar.visible" : true,
+  "window.restoreWindows" : "all"
 }

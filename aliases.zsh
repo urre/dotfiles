@@ -149,3 +149,8 @@ function java11() {
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
   export PATH="$JAVA_HOME/bin:$PATH"
 }
+
+function java17() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
