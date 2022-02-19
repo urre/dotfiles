@@ -41,7 +41,7 @@ fi
 
 # Install nvm
 echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.38.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
 
 # Install Homebrew Packages
 cd ~
@@ -62,7 +62,9 @@ homebrew_packages=(
 	"pipenv"
 	"python3"
 	"starship"
-	"yarn"
+	"yarn",
+	"gh",
+	"watch"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
