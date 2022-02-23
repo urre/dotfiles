@@ -90,5 +90,6 @@
   },
   "breadcrumbs.enabled" : true,
   "workbench.statusBar.visible" : true,
-  "window.restoreWindows" : "all"
+  "window.restoreWindows": "all",
+  "workbench.colorTheme": "GitHub Dark"
 }
