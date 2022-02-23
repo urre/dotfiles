@@ -127,6 +127,7 @@ echo "Installing Java"
 brew tap AdoptOpenJDK/openjdk
 brew install openjdk@8
 brew install openjdk@11
+brew install openjdk@17
 
 # Install Composer
 echo "Installing Composer"
@@ -135,7 +136,7 @@ mv composer.phar /usr/local/bin/composer
 
 # Installing global Node.js packages
 echo "Installing Global Node.js packages"
-npm i -g gatsby-cli netlify-cli vercel serve http-server -g
+npm i -g gatsby-cli netlify-cli vercel serve -g
 
 # Generate SSH key
 echo "Generating SSH keys"
