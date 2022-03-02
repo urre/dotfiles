@@ -107,9 +107,12 @@ function amont() {
   # I store my screenshots on the desktop, so start here
   cd ~/desktop
 
-  # Add the Before/After text
-  convert "$1" -undercolor white -pointsize 66 -fill red  -gravity Northwest -annotate 0 'Before' "$1"
-  convert "$2" -undercolor white -pointsize 66 -fill "#78BE21"  -gravity Northwest -annotate 0 'After' "$2"
+  if [ "$4" = 'annotate' ]
+  then
+    # Annotate adding the Before/After text if annotate flag is passed
+    convert "$1" -undercolor white -pointsize 66 -fill red  -gravity Northwest -annotate 0 'Before' "$1"
+    convert "$2" -undercolor white -pointsize 66 -fill "#78BE21"  -gravity Northwest -annotate 0 'After' "$2"
+  fi
 
   # Merge the two images side by side, open the image in Preview
   # montage -background '#f2f2f2' -geometry 1280x720+0+0 1.jpg 2.jpg merged.jpg;
@@ -126,7 +129,7 @@ function amont() {
     CLOUDINARY_URL=$(echo "$CLOUDINARY_URL")
     export CLOUDINARY_URL
     # Upload to Cloudinary and then copy the HTTPS image link to clipboard (using the cld uploader)
-    cld uploader upload ~/desktop/merged.jpg | jq -r '.secure_url' | pbcopy
+    cld uploader upload ~/desktop/result.jpg | jq -r '.secure_url' | pbcopy
   fi
 
 
