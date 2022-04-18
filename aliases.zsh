@@ -45,7 +45,6 @@ git_status_size(){
 # Open Discogs with currently playing album
 alias discogs="cd ~/projects/labs/discogs-nowplaying && npm start"
 
-
 # Docker
 alias dockerkill='docker kill $(docker ps -q)'
 alias dockerdelete='docker rm $(docker ps -a -q)'
@@ -80,7 +79,6 @@ function take() {
   mkdir $1 && cd $_
 }
 
-
 # Show whats running on port X
 function port() {
   lsof -nP -iTCP:"$1"
@@ -96,6 +94,11 @@ function killport {
 # Usage example: mont 1.jpg 2.jpg
 function mont() {
   montage -background '#f2f2f2' -geometry 1280x720+0+0 ~/desktop/"$1" ~/desktop/"$2" ~/desktop/merged.jpg;
+  open -a Preview ~/desktop/merged.jpg
+}
+
+function mont4() {
+  montage -background '#f2f2f2' -geometry 2280x -tile 2x2 ~/desktop/"$1" ~/desktop/"$2" ~/desktop/"$3" ~/desktop/"$4" ~/desktop/merged.jpg;
   open -a Preview ~/desktop/merged.jpg
 }
 
@@ -136,8 +139,7 @@ function amont() {
 }
 
 # Java
-# The openjdk@8 is also a keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
-# sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+# The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
 # https://docs.brew.sh/FAQ#what-does-keg-only-mean
 
 # version 17
