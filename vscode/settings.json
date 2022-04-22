@@ -20,7 +20,6 @@
     "editor.defaultFormatter" : "esbenp.prettier-vscode"
   },
   "editor.cursorBlinking" : "phase",
-  // "editor.hover.enabled": false,
   "explorer.confirmDragAndDrop" : false,
   "editor.detectIndentation" : true,
   "editor.fontWeight" : "300",
@@ -31,6 +30,9 @@
     "editor.defaultFormatter" : "esbenp.prettier-vscode"
   },
   "[mdx]" : {
+    "editor.formatOnSave": false,
+		"editor.formatOnPaste": false,
+    "editor.defaultFormatter": null,
     "editor.lineHeight" : 26,
     "editor.wordWrapColumn" : 72,
     "editor.lineNumbers" : "on",

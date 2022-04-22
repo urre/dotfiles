@@ -9,6 +9,7 @@ alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 # Git language in English
 alias git="LANG=en_US.UTF.8 git"
 
+# Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 # Git log today
@@ -20,7 +21,7 @@ alias glw="git shortlog --all --no-merges --author $(git config user.email) --si
 # Git status
 alias gs="git status -s"
 
-# Copy current git branch name in clipboard
+# Copy current git branch name to clipboard
 alias gb="git branch | grep '^\*' | cut -d' ' -f2 | pbcopy"
 
 # Check total git commits across all branches
@@ -39,11 +40,8 @@ alias gshort="git diff --shortstat | sed '/^\s*$/d'"
 alias gst="git_status_size"
 
 git_status_size(){
-    git status --porcelain | awk '{print $2}' | xargs ls -hl | sort -r -h | awk '{print $5 "\t" $9}'
+  git status --porcelain | awk '{print $2}' | xargs ls -hl | sort -r -h | awk '{print $5 "\t" $9}'
 }
-
-# Open Discogs with currently playing album
-alias discogs="cd ~/projects/labs/discogs-nowplaying && npm start"
 
 # Docker
 alias dockerkill='docker kill $(docker ps -q)'
@@ -53,15 +51,11 @@ alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
 
 # Standup work
-alias supcurity='cd ~/projects/twobo && git standup -a "Urban" -s -m 3'
-alias supcurityweekend='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 3'
-alias supcurityall='cd ~/projects/twobo && git standup -a "all" -m 3'
-alias supcurityweekendall='cd ~/projects/twobo && git standup -a "all" -d 3 -m 3'
+alias standup='cd ~/projects/twobo && git standup -a "Urban" -s -m 3'
+alias standupwknd='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 3'
 
 # Standup personal
 alias suppersonal='cd ~/projects && git standup -a "Urban" -s -m 3'
-alias suppersonalweekend='cd ~/projects && git standup -a "Urban" -d 3 -s -m 3'
-alias suppersonalall='cd ~/projects && git standup -a "all" -s -m 3'
 
 # Open in VS Code
 function code {
@@ -75,6 +69,7 @@ function code {
     fi
 }
 
+# Create a directory an cd into the new directory at once
 function take() {
   mkdir $1 && cd $_
 }
@@ -90,18 +85,45 @@ function killport {
     lsof -ti tcp:$1 | xargs kill
 }
 
-# Merge two images side by side, then open in Preview
+# Java
+# The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
+# https://docs.brew.sh/FAQ#what-does-keg-only-mean
+
+# version 17
+#brew install openjdk@17
+#sudo ln -sfn /usr/local/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+
+# version 11
+#brew install openjdk@11
+#sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+
+# version 8
+#brew install openjdk@8
+#sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+
+# Switch Java versions
+function java8() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+function java11() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+function java17() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+
+# Merge two images side by side, then open in Preview (for fast annotations etc)
 # Usage example: mont 1.jpg 2.jpg
 function mont() {
   montage -background '#f2f2f2' -geometry 1280x720+0+0 ~/desktop/"$1" ~/desktop/"$2" ~/desktop/merged.jpg;
   open -a Preview ~/desktop/merged.jpg
 }
-
-function mont4() {
-  montage -background '#f2f2f2' -geometry 2280x -tile 2x2 ~/desktop/"$1" ~/desktop/"$2" ~/desktop/"$3" ~/desktop/"$4" ~/desktop/merged.jpg;
-  open -a Preview ~/desktop/merged.jpg
-}
-
 
 # Annotate two images with "Before" and "After". Then merge two images side by side. Upload to Cloudinary if upload flag passed
 # Usage example: amont 1.jpg 2.jpg upload
@@ -136,36 +158,4 @@ function amont() {
   fi
 
 
-}
-
-# Java
-# The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
-# https://docs.brew.sh/FAQ#what-does-keg-only-mean
-
-# version 17
-#brew install openjdk@17
-#sudo ln -sfn /usr/local/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
-
-# version 11
-#brew install openjdk@11
-#sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-
-# version 8
-#brew install openjdk@8
-#sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
-
-# Switch Java versions
-function java8() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
-}
-
-function java11() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
-}
-
-function java17() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
 }
