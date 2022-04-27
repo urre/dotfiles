@@ -58,14 +58,13 @@
   "editor.renderControlCharacters" : true,
   "files.defaultLanguage" : "html",
   "[json]" : {
-    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+    "editor.defaultFormatter" : "vscode.json-language-features"
   },
   "[html]" : {
     "editor.defaultFormatter" : "vscode.html-language-features"
   },
   "explorer.openEditors.visible" : 0,
-  "window.openFoldersInNewWindow" : "on",
-  "editor.minimap.enabled" : false,
+  "window.openFoldersInNewWindow": "on",
   "window.title" : "${activeEditorMedium}",
   "terminal.integrated.fontSize" : 16,
   "javascript.updateImportsOnFileMove.enabled" : "always",
