@@ -117,12 +117,28 @@ function java17() {
   export PATH="$JAVA_HOME/bin:$PATH"
 }
 
-
-# Merge two images side by side, then open in Preview (for fast annotations etc)
+# Merge two images side by side
+# then open in Preview (for fast annotations etc)
 # Usage example: mont 1.jpg 2.jpg
-function mont() {
-  montage -background '#f2f2f2' -geometry 1280x720+0+0 ~/desktop/"$1" ~/desktop/"$2" ~/desktop/merged.jpg;
-  open -a Preview ~/desktop/merged.jpg
+function mergey() {
+  convert +append "$1" "$2" merged.jpg;
+  # open -a Preview merged.jpg
+  open -a CleanShot\ X/ merged.jpg
+}
+
+# Merge two images on top of eachother
+# then open in Preview or CleanShotX (for fast annotations etc)
+# Usage example: mont 1.jpg 2.jpg
+function mergex() {
+  convert -append "$1" "$2" merged.jpg;
+  # open -a Preview ~/desktop/merged.jpg
+  open -a CleanShot\ X/ merged.jpg
+}
+
+# Collage of all images in the current folder
+function montage() {
+  montage -background '#f2f2f2' -geometry 1280x -tile 4x4 -border 80 -bordercolor white *.jpg merged.jpg
+  open -a Preview merged.jpg
 }
 
 # Annotate two images with "Before" and "After". Then merge two images side by side. Upload to Cloudinary if upload flag passed

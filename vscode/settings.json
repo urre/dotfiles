@@ -95,5 +95,8 @@
   "workbench.colorTheme": "GitHub Dark",
   "editor.codeActionsOnSave": {
 
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
