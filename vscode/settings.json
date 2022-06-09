@@ -92,11 +92,12 @@
   "breadcrumbs.enabled" : true,
   "workbench.statusBar.visible" : true,
   "window.restoreWindows": "all",
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "New Moon",
   "editor.codeActionsOnSave": {
 
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.minimap.enabled": false
 }
