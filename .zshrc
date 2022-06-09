@@ -14,7 +14,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/H
 
 # Plugins
 plugins=(git zsh-z gitfast)
-plugins+=(zsh-better-npm-completion)
 
 source $ZSH/oh-my-zsh.sh
 

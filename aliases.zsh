@@ -51,8 +51,8 @@ alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
 
 # Standup work
-alias standup='cd ~/projects/twobo && git standup -a "Urban" -s -m 3'
-alias standupwknd='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 3'
+alias standup='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
+alias standupwknd='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 5'
 
 # Standup personal
 alias suppersonal='cd ~/projects && git standup -a "Urban" -s -m 3'
