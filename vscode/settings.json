@@ -37,7 +37,11 @@
     "editor.wordWrapColumn" : 72,
     "editor.lineNumbers" : "on",
     "editor.fontSize" : 16,
-    "editor.quickSuggestions" : false,
+    "editor.quickSuggestions" : {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
     "editor.fontFamily" : "\"IBM Plex Mono\", \"Nono Sans\", monospace",
     "editor.fontLigatures" : true,
     "editor.wordWrap" : "wordWrapColumn"
@@ -98,6 +102,5 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.minimap.enabled": false
+  }
 }
