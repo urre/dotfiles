@@ -49,6 +49,7 @@ alias dockerdelete='docker rm $(docker ps -a -q)'
 alias dockerdeleteimages='docker rmi $(docker images -q)'
 alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
+alias du='docker compose up'
 
 # Standup work
 alias standup='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
@@ -120,7 +121,7 @@ function java17() {
 # Merge two images side by side
 # then open in Preview (for fast annotations etc)
 # Usage example: mont 1.jpg 2.jpg
-function mergey() {
+function mergex() {
   convert +append "$1" "$2" merged.jpg;
   # open -a Preview merged.jpg
   open -a CleanShot\ X/ merged.jpg
@@ -129,14 +130,14 @@ function mergey() {
 # Merge two images on top of eachother
 # then open in Preview or CleanShotX (for fast annotations etc)
 # Usage example: mont 1.jpg 2.jpg
-function mergex() {
+function mergey() {
   convert -append "$1" "$2" merged.jpg;
   # open -a Preview ~/desktop/merged.jpg
   open -a CleanShot\ X/ merged.jpg
 }
 
 # Collage of all images in the current folder
-function montage() {
+function montageall() {
   montage -background '#f2f2f2' -geometry 1280x -tile 4x4 -border 80 -bordercolor white *.jpg merged.jpg
   open -a Preview merged.jpg
 }
@@ -172,6 +173,15 @@ function amont() {
     # Upload to Cloudinary and then copy the HTTPS image link to clipboard (using the cld uploader)
     cld uploader upload ~/desktop/result.jpg | jq -r '.secure_url' | pbcopy
   fi
+}
 
+# Check weather using "weather Cityname"
+weather() {
+    city="$1"
 
+    if [ -z "$city" ]; then
+        city="Lidköping"
+    fi
+
+    eval "curl http://wttr.in/${city}"
 }
