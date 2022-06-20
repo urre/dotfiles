@@ -58,6 +58,8 @@ alias du='docker compose up'
 
 # Launch standup on Zoom
 function standup() {
+  clear
+  echo "Launching Zoom..."
   open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
 }
 
