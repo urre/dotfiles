@@ -1,3 +1,8 @@
+# Load some .env secreets
+DIR=$( cd ~/.dotfiles && pwd )
+source "$DIR/.env"
+
+# General
 alias cls="clear"
 alias size="du -k -a | sort -n"
 alias iip="ifconfig | grep inet"
@@ -51,12 +56,16 @@ alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
 alias du='docker compose up'
 
-# Standup work
-alias standup='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
-alias standupwknd='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 5'
+# Launch standup on Zoom
+function standup() {
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
+}
+
+alias log='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
+alias logw='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 5'
 
 # Standup personal
-alias suppersonal='cd ~/projects && git standup -a "Urban" -s -m 3'
+alias log='cd ~/projects && git standup -a "Urban" -s -m 3'
 
 # Open in VS Code
 function code {
@@ -169,7 +178,6 @@ function amont() {
     DIR=$( cd ~/.dotfiles && pwd )
     source "$DIR/.env"
     CLOUDINARY_URL=$(echo "$CLOUDINARY_URL")
-    export CLOUDINARY_URL
     # Upload to Cloudinary and then copy the HTTPS image link to clipboard (using the cld uploader)
     cld uploader upload ~/desktop/result.jpg | jq -r '.secure_url' | pbcopy
   fi
