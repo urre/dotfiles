@@ -64,9 +64,6 @@
   "[json]" : {
     "editor.defaultFormatter" : "vscode.json-language-features"
   },
-  "[html]" : {
-    "editor.defaultFormatter" : "vscode.html-language-features"
-  },
   "explorer.openEditors.visible" : 0,
   "window.openFoldersInNewWindow": "on",
   "window.title" : "${activeEditorMedium}",
@@ -96,11 +93,12 @@
   "breadcrumbs.enabled" : true,
   "workbench.statusBar.visible" : true,
   "window.restoreWindows": "all",
-  "workbench.colorTheme": "New Moon",
+  "workbench.colorTheme": "Nako",
   "editor.codeActionsOnSave": {
 
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.minimap.enabled": false
 }

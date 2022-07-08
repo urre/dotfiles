@@ -8,12 +8,13 @@ alias size="du -k -a | sort -n"
 alias iip="ifconfig | grep inet"
 alias eip="curl icanhazip.com"
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias prev="cd -"
+
+# Work
+alias gw="./gradlew"
+alias dr="./debug/run"
 
 # Git
-
-# Git language in English
-alias git="LANG=en_US.UTF.8 git"
-
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
@@ -48,13 +49,18 @@ git_status_size(){
   git status --porcelain | awk '{print $2}' | xargs ls -hl | sort -r -h | awk '{print $5 "\t" $9}'
 }
 
+# Git language in English
+alias git="LANG=en_US.UTF.8 git"
+
 # Docker
 alias dockerkill='docker kill $(docker ps -q)'
 alias dockerdelete='docker rm $(docker ps -a -q)'
 alias dockerdeleteimages='docker rmi $(docker images -q)'
 alias dockerstop='docker stop $(docker ps -a -q)'
 alias dki='docker images'
-alias du='docker compose up'
+alias dup='docker compose up'
+alias dus='docker compose stop'
+alias dud='docker compose down'
 
 # Launch standup on Zoom
 function standup() {
@@ -92,7 +98,7 @@ function port() {
 }
 
 # Kill processes at a given port
-function killport {
+function killport() {
     echo '🚨 Killing all processes at port' $1
     lsof -ti tcp:$1 | xargs kill
 }
@@ -194,4 +200,18 @@ weather() {
     fi
 
     eval "curl http://wttr.in/${city}"
+}
+
+# Check size of files
+# Handy to check bundle sizes, built assets etc.
+function sz() {
+  du -d 1 -h "$1" | cut -f1
+}
+
+function szgzip() {
+  gzip -c "$1" | wc -c | awk '{$1/=1024;printf "%.2fK\n",$1}'
+}
+
+function szmin() {
+  curl -X POST -s --data-urlencode "$1" https://javascript-minifier.com/raw > apa.temp
 }
