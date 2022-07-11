@@ -9,9 +9,6 @@ sudo -v
 mkdir -p $(dirname "$HOME/.ssh")
 ln -sfn ssh-config "$HOME/.ssh/config"
 
-# Update Homebrew
-brew update
-
 # Install and use zsh from Homebrew
 echo "Installing zsh from Homebrew..."
 brew install zsh
@@ -33,11 +30,11 @@ echo "Sourcing ~/.zhrc"
 source ~/.zhrc
 
 # Install Homebrew
-echo "Installing Homebrew"
+#echo "Installing Homebrew"
 
-if test ! $(which brew); then
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+#if test ! $(which brew); then
+#	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#fi
 
 # Install nvm
 echo "Installing nvm"
