@@ -11,3 +11,12 @@ My dotfiles repo
 5. Clone repo into `~/.dotfiles`
 6. Run the installer script `./install.sh`
 7. Restart macOS
+
+## Work stuff
+1. Keep credentials in `~/.gradle/gradle.properties`
+
+```shell
+mavenUser=XXX
+mavenPassword=XXX
+usePoetry=true
+```

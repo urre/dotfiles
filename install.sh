@@ -76,7 +76,6 @@ homebrew_packages=(
 	"fork"
 	"gh",
 	"git-standup"
-	"git-standup"
 	"git"
 	"google-chrome"
 	"gradle"
