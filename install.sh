@@ -36,46 +36,27 @@ source ~/.zhrc
 echo "Installing Homebrew"
 
 if test ! $(which brew); then
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Install nvm
 echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
 
+# Install Node.js using nvm
+nvm install 14.17.5
+nvm install 16.14.2
+nvm install 18.3.0
+
 # Install Homebrew Packages
 cd ~
 echo "Installing Homebrew packages"
 
-homebrew_packages=(
-	"circleci"
-	"ffmpeg"
-	"git-standup"
-	"git"
-	"gradle"
-	"imagemagick"
-	"jq"
-	"mysql"
-	"node"
-	"openssl"
-	"php"
-	"pipenv"
-	"python3"
-	"starship"
-	"yarn",
-	"gh",
-	"watch"
-)
-
-for homebrew_package in "${homebrew_packages[@]}"; do
-	brew install "$homebrew_package"
-done
-
-# Install Homebrew cask packages
+# Install Homebrew packages
 echo "Installing Homebrew cask packages"
 brew tap homebrew/cask-fonts
 
-homebrew_cask_packages=(
+homebrew_packages=(
 	"1Password"
 	"adobe-creative-cloud"
 	"alfred"
@@ -85,41 +66,57 @@ homebrew_cask_packages=(
 	"daisydisk"
 	"docker"
 	"dropbox"
+	"ffmpeg"
+	"fig"
 	"firefox"
 	"font-ibm-plex"
+	"font-jetbrains-mono"
 	"font-roboto-mono"
 	"font-roboto"
-	"font-jetbrains-mono"
 	"fork"
+	"gh",
+	"git-standup"
+	"git-standup"
+	"git"
 	"google-chrome"
+	"gradle"
 	"handbrake"
 	"hyper"
+	"imagemagick"
 	"insomnia"
+	"jq"
 	"kap"
 	"magnet"
+	"mysql"
 	"ngrok"
+	"node"
+	"noizio"
 	"notion"
 	"now"
 	"numi"
+	"openssl"
+	"php"
+	"pipenv"
+	"python3"
+	"rectangle"
 	"rocket"
 	"roon"
 	"sequel-pro"
-	"skype"
 	"slack"
-	"soulver"
-	"spectacle"
 	"spotify"
+	"starship"
 	"tidal"
 	"transmit"
 	"typora"
 	"viscosity"
-	"git-standup"
 	"visual-studio-code"
 	"vlc",
+	"watch"
+	"yarn",
 )
 
-for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
-	brew install "$homebrew_cask_package"
+for homebrew_package in "${homebrew_packages[@]}"; do
+	brew install "$homebrew_package"
 done
 
 # Install Java
@@ -136,7 +133,13 @@ mv composer.phar /usr/local/bin/composer
 
 # Installing global Node.js packages
 echo "Installing Global Node.js packages"
-npm i -g gatsby-cli netlify-cli vercel serve -g
+npm i -g gatsby-cli
+npm i -g netlify-cli
+npm i -g vercel
+npm i -g serve
+npm i -g http-server
+npm i -g svgo
+npm i -g contentful
 
 # Generate SSH key
 echo "Generating SSH keys"
