@@ -109,27 +109,9 @@ function killport() {
 
 # version 17
 #brew install openjdk@17
-#sudo ln -sfn /usr/local/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
-
-# version 11
-#brew install openjdk@11
-#sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-
-# version 8
-#brew install openjdk@8
-#sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+#sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
 
 # Switch Java versions
-function java8() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
-}
-
-function java11() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
-}
-
 function java17() {
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
   export PATH="$JAVA_HOME/bin:$PATH"
