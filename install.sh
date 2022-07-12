@@ -30,11 +30,8 @@ echo "Sourcing ~/.zhrc"
 source ~/.zhrc
 
 # Install Homebrew
-#echo "Installing Homebrew"
-
-#if test ! $(which brew); then
-#	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#fi
+echo "Installing Homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install nvm
 echo "Installing nvm"
@@ -57,7 +54,6 @@ homebrew_packages=(
 	"1Password"
 	"adobe-creative-cloud"
 	"alfred"
-	"arq"
 	"brave-browser"
 	"calibre"
 	"daisydisk"
@@ -86,7 +82,6 @@ homebrew_packages=(
 	"mysql"
 	"ngrok"
 	"node"
-	"noizio"
 	"notion"
 	"now"
 	"numi"
@@ -115,6 +110,12 @@ for homebrew_package in "${homebrew_packages[@]}"; do
 	brew install "$homebrew_package"
 done
 
+# VLC
+brew install --cask vlc
+
+# Install Poetry
+curl -sSL https://install.python-poetry.org | python3 -
+
 # Install Java
 echo "Installing Java"
 brew tap AdoptOpenJDK/openjdk
@@ -141,7 +142,7 @@ npm i -g contentful
 echo "Generating SSH keys"
 ssh-keygen -t rsa
 
-echo "Copied SSH key to clipboard - You can now add it to Github, Bitbucket etc"
+echo "Copied SSH key to clipboard - You can now add it to GitHub, Bitbucket etc"
 pbcopy <~/.ssh/id_rsa.pub
 
 # Register the global gitignore file
