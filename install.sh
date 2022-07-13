@@ -79,11 +79,13 @@ homebrew_packages=(
 	"jq"
 	"kap"
 	"magnet"
+	"mkcert",
 	"mysql"
 	"ngrok"
 	"node"
 	"notion"
 	"now"
+	"nss"
 	"numi"
 	"openssl"
 	"php"
@@ -112,6 +114,9 @@ done
 
 # VLC
 brew install --cask vlc
+
+# Zoom
+brew install --cask zoom
 
 # Install Poetry
 curl -sSL https://install.python-poetry.org | python3 -
