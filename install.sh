@@ -112,11 +112,26 @@ for homebrew_package in "${homebrew_packages[@]}"; do
 	brew install "$homebrew_package"
 done
 
+# Raycast
+brew install --cask raycast
+
 # VLC
 brew install --cask vlc
 
+# Google Drive
+brew install --cask google-drive
+
 # Zoom
 brew install --cask zoom
+
+# Messenger
+brew install --cask messenger
+
+# ChronoSync Express
+brew install --cask chronosync
+
+# NetNewsWire
+brew install --cask netnewswire
 
 # Install Poetry
 curl -sSL https://install.python-poetry.org | python3 -
