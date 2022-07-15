@@ -136,6 +136,9 @@ brew install --cask netnewswire
 # Install Poetry
 curl -sSL https://install.python-poetry.org | python3 -
 
+# Cloudinary CLI
+pip3 install cloudinary-cli
+
 # Install Java
 echo "Installing Java"
 brew tap AdoptOpenJDK/openjdk
