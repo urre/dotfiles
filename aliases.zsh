@@ -193,7 +193,3 @@ function sz() {
 function szgzip() {
   gzip -c "$1" | wc -c | awk '{$1/=1024;printf "%.2fK\n",$1}'
 }
-
-function szmin() {
-  curl -X POST -s --data-urlencode "$1" https://javascript-minifier.com/raw > apa.temp
-}
