@@ -186,6 +186,7 @@ weather() {
 
 # Check size of files
 # Handy to check bundle sizes, built assets etc.
+# Pass in a file path ex. sz path/to/file.css
 function sz() {
   du -d 1 -h "$1" | cut -f1
 }
