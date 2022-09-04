@@ -27,7 +27,7 @@
     "FIG_NEW_SESSION": "1"
   },
   "editor.formatOnPaste" : false,
-  "terminal.integrated.fontFamily" : "SF Mono",
+  "terminal.integrated.fontFamily" : "'JetBrainsMono-Regular', 'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
   "search.exclude" : {
     "tmp\/**" : true,
     "assets\/build\/" : true,
@@ -60,8 +60,7 @@
   },
   "window.openFoldersInNewWindow" : "on",
   "workbench.tips.enabled" : false,
-  "window.title" : "${activeEditorMedium}",
-  "workbench.colorTheme" : "Nako",
+  "window.title": "${activeEditorMedium}",
   "files.insertFinalNewline" : true,
   "editor.trimAutoWhitespace" : true,
   "editor.bracketPairColorization.enabled" : true,

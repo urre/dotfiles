@@ -13,6 +13,7 @@ alias prev="cd -"
 # Work
 alias gw="./gradlew"
 alias dr="./debug/run"
+alias nw="npm run build.dev.watch"
 
 # Git
 # Git log
