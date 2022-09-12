@@ -14,8 +14,8 @@ alias prev="cd -"
 alias gw="./gradlew"
 alias dr="./debug/run"
 alias nw="npm run build.dev.watch"
+alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ~/projects/twobo/curity-web-ui/dist/dev ~/projects/twobo/idsvr/dist/etc/admin-webui"
 
-# Git
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 

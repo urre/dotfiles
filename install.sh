@@ -160,6 +160,7 @@ npm i -g serve
 npm i -g http-server
 npm i -g svgo
 npm i -g contentful
+npm i -g fast-cli
 
 # Generate SSH key
 echo "Generating SSH keys"

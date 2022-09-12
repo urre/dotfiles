@@ -101,5 +101,9 @@
   "security.workspace.trust.untrustedFiles": "open",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "yaml.schemas": {
+    "file:///Users/urbansanden/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "redhat.telemetry.enabled": false
 }
