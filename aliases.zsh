@@ -13,7 +13,7 @@ alias prev="cd -"
 # Work
 alias gw="./gradlew"
 alias dr="./debug/run"
-alias nw="npm run build.dev.watch"
+alias bdw="npm run build.dev.watch"
 alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ~/projects/twobo/curity-web-ui/dist/dev ~/projects/twobo/idsvr/dist/etc/admin-webui"
 
 # Git log
