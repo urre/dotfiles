@@ -17,10 +17,18 @@ My dotfiles repo
 You might need Rosetta `softwareupdate --install-rosetta --agree-to-license`
 
 ## Work stuff
-1. Keep credentials in `~/.gradle/gradle.properties`
+1. Keep Maven credentials in `~/.gradle/gradle.properties`
 
 ```shell
 mavenUser=XXX
 mavenPassword=XXX
 usePoetry=true
+```
+
+2. Keep AWS credentials `~/.aws/credentials`
+
+```
+[default]
+aws_access_key_id=XXX
+aws_secret_access_key=XXX
 ```
