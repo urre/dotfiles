@@ -133,6 +133,9 @@ brew install --cask chronosync
 # NetNewsWire
 brew install --cask netnewswire
 
+# Edge
+brew install --cask microsoft-edge
+
 # Install Poetry
 curl -sSL https://install.python-poetry.org | python3 -
 
