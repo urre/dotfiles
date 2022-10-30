@@ -5,7 +5,7 @@ source "$DIR/.env"
 # General
 alias cls="clear"
 alias size="du -k -a | sort -n"
-alias iip="ifconfig | grep inet"
+alias iip="ipconfig getifaddr en0"
 alias eip="curl icanhazip.com"
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias prev="cd -"
@@ -15,6 +15,8 @@ alias gw="./gradlew"
 alias dr="./debug/run"
 alias bdw="npm run build.dev.watch"
 alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ~/projects/twobo/curity-web-ui/dist/dev ~/projects/twobo/idsvr/dist/etc/admin-webui"
+alias resym="ln -s /Users/urbansanden/projects/twobo/curity-web-ui/dist/dev /Users/urbansanden/projects/twobo/idsvr/dist/etc/admin-webui"
+alias webmobile="iip | pbcopy"
 
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"

@@ -27,13 +27,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# pure
-fpath+=($HOME/.zsh/pure)
+# compinit is the completion system from Z shell
+autoload -Uz compinit && compinit
+# Git completion
+autoload -Uz vcs_info
 
-autoload -U promptinit; promptinit
-prompt pure
+precmd() { vcs_info }
+setopt PROMPT_SUBST
+zstyle ':vcs_info:git:*' formats '%F{153}%b'
 
-export PATH="$HOME/.poetry/bin:$PATH"
+# Prompt green/red
+PROMPT='%(?.%F{green}●.%F{red}●%f) %F{211}%1~%f ${vcs_info_msg_0_} '
+RPROMPT='%F{245}%*%f'
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
