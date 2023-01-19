@@ -56,12 +56,13 @@
     "command": "workbench.action.openSettingsJson"
   },
   {
-    "key": "cmd+shift+m",
-    "command": "editor.action.insertSnippet",
-    "when": "editorTextFocus",
-    "args": {
-      "snippet": "@media (min-width: 40em) {"
-    }
+    "key": "cmd+alt+m",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "cmd+shift+t",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": ". ${file}" }
   },
   {
     "key": "cmd+shift+u",
@@ -78,9 +79,5 @@
     "args": {
       "snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
     }
-  },
-  {
-    "key": "cmd+alt+m",
-    "command": "workbench.action.toggleMaximizedPanel"
   }
 ]
