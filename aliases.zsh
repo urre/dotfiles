@@ -14,8 +14,9 @@ alias prev="cd -"
 alias gw="./gradlew"
 alias dr="./debug/run"
 alias bdw="npm run build.dev.watch"
-alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ~/projects/twobo/curity-web-ui/dist/dev ~/projects/twobo/idsvr/dist/etc/admin-webui"
-alias resym="ln -s ${HOME}projects/twobo/curity-web-ui/dist/dev ${HOME}projects/twobo/idsvr/dist/etc/admin-webui"
+alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ${HOME}/projects/twobo/curity-web-ui/dist/dev ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
+alias resym="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/dev ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
+alias resymprod="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/prod ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
 alias webmobile="iip | pbcopy"
 
 # Git log
