@@ -74,11 +74,12 @@ function standup() {
   open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
 }
 
+# Standup
 alias log='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
 alias logw='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 5'
 
 # Standup personal
-alias log='cd ~/projects && git standup -a "Urban" -s -m 3'
+alias logp='cd ~/projects && git standup -a "Urban" -s -m 3'
 
 # Open in VS Code
 function code {
@@ -198,4 +199,19 @@ function sz() {
 
 function szgzip() {
   gzip -c "$1" | wc -c | awk '{$1/=1024;printf "%.2fK\n",$1}'
+}
+
+# Convert mp4 to GIF with ffmpeg
+# Usage: togif "validation.mp4" "output" 25 1.5
+togif() {
+  # Required arguments
+  input_file="$1"
+  output_file="$2"
+
+  # Optional arguments with default values
+  framerate="${3:-30}"
+  pts="${4:-2}"
+
+  ffmpeg -i "$input_file" -vf "setpts=PTS/$pts,fps=$framerate,scale=1520:-1:flags=lanczos" -c:v pam -f image2pipe - \
+  | convert -delay 5 - -loop 0 -layers optimize "$output_file.gif"
 }
