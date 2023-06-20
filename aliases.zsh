@@ -68,17 +68,24 @@ alias dus='docker compose stop'
 alias dud='docker compose down'
 
 # Launch standup on Zoom
-function standup() {
+function sdev() {
   clear
   echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
 }
 
-# Standup
+# Launch standup on Zoom
+function spme() {
+  clear
+  echo "Launching Zoom..."
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
+}
+
+# Git Standup
 alias log='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
 alias logw='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 5'
 
-# Standup personal
+# Git Standup personal
 alias logp='cd ~/projects && git standup -a "Urban" -s -m 3'
 
 # Open in VS Code
