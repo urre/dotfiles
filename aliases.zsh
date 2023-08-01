@@ -20,14 +20,14 @@ alias resym="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/dev ${HOME}/project
 alias resymprod="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/prod ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
 alias webmobile="iip | pbcopy"
 
-# Launch standup on Zoom
+# Launch dev standup on Zoom
 function sdev() {
   clear
   echo "Launching Zoom..."
   open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
 }
 
-# Launch standup on Zoom
+# Launch PMe/Marketing standup on Zoom
 function spme() {
   clear
   echo "Launching Zoom..."
