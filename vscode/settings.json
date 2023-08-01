@@ -114,5 +114,8 @@
     "[ ]",
     "[x]",
     "ss"
-  ]
+  ],
+  "editor.minimap.enabled": false,
+  "material-icon-theme.folders.theme": "specific",
+  "workbench.iconTheme": "vscode-great-icons"
 }
