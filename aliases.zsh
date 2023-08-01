@@ -20,6 +20,35 @@ alias resym="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/dev ${HOME}/project
 alias resymprod="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/prod ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
 alias webmobile="iip | pbcopy"
 
+# Launch standup on Zoom
+function sdev() {
+  clear
+  echo "Launching Zoom..."
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
+}
+
+# Launch standup on Zoom
+function spme() {
+  clear
+  echo "Launching Zoom..."
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
+}
+
+# Java
+# The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
+# https://docs.brew.sh/FAQ#what-does-keg-only-mean
+
+# version 17
+#brew install openjdk@17
+#sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+
+# Switch Java versions
+function java17() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
@@ -67,19 +96,6 @@ alias dup='docker compose up'
 alias dus='docker compose stop'
 alias dud='docker compose down'
 
-# Launch standup on Zoom
-function sdev() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
-}
-
-# Launch standup on Zoom
-function spme() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
-}
 
 # Git Standup
 alias log='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
@@ -116,19 +132,6 @@ function killport() {
     lsof -ti tcp:$1 | xargs kill
 }
 
-# Java
-# The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
-# https://docs.brew.sh/FAQ#what-does-keg-only-mean
-
-# version 17
-#brew install openjdk@17
-#sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
-
-# Switch Java versions
-function java17() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
-}
 
 # Merge two images side by side
 # then open in Preview (for fast annotations etc)
