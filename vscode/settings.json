@@ -39,6 +39,9 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": true,
   "editor.accessibilitySupport": "off",
@@ -53,14 +56,15 @@
   "editor.formatOnSave": false,
   "editor.guides.bracketPairs": true,
   "editor.insertSpaces": false,
+  "editor.minimap.enabled": false,
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
   "emmet.includeLanguages": {
+    "handlebars": "handlebars",
     "javascript": "javascriptreact",
-    "velocity": "html",
-    "handlebars": "handlebars"
+    "velocity": "html"
   },
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
@@ -75,8 +79,10 @@
     "**/.git/objects/**": true,
     "**/node_modules/**": true
   },
+  "git.openRepositoryInParentFolders": "never",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "keyboard.touchbar.enabled": false,
+  "material-icon-theme.folders.theme": "specific",
   "redhat.telemetry.enabled": false,
   "search.exclude": {
     "**/.git": true,
@@ -94,17 +100,6 @@
   },
   "terminal.integrated.fontFamily": "'JetBrainsMono-Regular', 'IBM Plex Mono', 'Noto Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
-  "window.newWindowDimensions": "inherit",
-  "window.openFoldersInNewWindow": "on",
-  "window.restoreWindows": "all",
-  "window.title": "${activeEditorMedium}",
-  "workbench.tree.indent": 20,
-  "workbench.enableExperiments": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": true,
-  "workbench.tips.enabled": false,
-  "git.openRepositoryInParentFolders": "never",
-  "workbench.colorTheme": "GitHub Dark",
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
@@ -115,7 +110,14 @@
     "[x]",
     "ss"
   ],
-  "editor.minimap.enabled": false,
-  "material-icon-theme.folders.theme": "specific",
-  "workbench.iconTheme": "vscode-great-icons"
+  "window.newWindowDimensions": "inherit",
+  "window.openFoldersInNewWindow": "on",
+  "window.restoreWindows": "all",
+  "window.title": "${activeEditorMedium}",
+  "workbench.colorTheme": "Dracula",
+  "workbench.enableExperiments": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true,
+  "workbench.tips.enabled": false,
+  "workbench.tree.indent": 20
 }

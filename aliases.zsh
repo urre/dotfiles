@@ -98,8 +98,8 @@ alias dud='docker compose down'
 
 
 # Git Standup
-alias log='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
-alias logw='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 5'
+alias logw='cd ~/projects/twobo && git standup -a "Urban" -s -m 5'
+alias logwk='cd ~/projects/twobo && git standup -a "Urban" -d 3 -s -m 5'
 
 # Git Standup personal
 alias logp='cd ~/projects && git standup -a "Urban" -s -m 3'

@@ -79,5 +79,9 @@
     "args": {
       "snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
     }
+  },
+  {
+    "key": "ctrl+alt+r",
+    "command": "extension.removeComments"
   }
 ]
