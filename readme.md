@@ -12,7 +12,7 @@ My dotfiles repo
 6. Run the installer script `./install.sh`
 7. Restart macOS
 
-## M1?
+## Apple M1 or M2?
 
 You might need Rosetta `softwareupdate --install-rosetta --agree-to-license`
 
