@@ -225,25 +225,3 @@ togif() {
   ffmpeg -i "$input_file" -vf "setpts=PTS/$pts,fps=$framerate,scale=1520:-1:flags=lanczos" -c:v pam -f image2pipe - \
   | convert -delay 5 - -loop 0 -layers optimize "$output_file.gif"
 }
-
-
-# Convert .png to .ico
-
-pngtoico() {
-    if [ $# -ne 2 ]; then
-        echo "Usage: pngtoico input.png output.ico"
-        return 1
-    fi
-
-    input_png="$1"
-    output_ico="$2"
-
-    # Check if input file exists
-    if [ ! -f "$input_png" ]; then
-        echo "Input file $input_png does not exist."
-        return 1
-    fi
-
-    # Execute the convert command
-    convert -background transparent "$input_png" -define icon:auto-resize=16,24,32,48,64,72,96,128,256 "$output_ico"
-}
