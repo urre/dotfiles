@@ -39,12 +39,17 @@ function spme() {
 # https://docs.brew.sh/FAQ#what-does-keg-only-mean
 
 # version 17
-#brew install openjdk@17
-#sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+#brew install openjdk@21
+#sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
 
 # Switch Java versions
 function java17() {
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+function java21() {
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-21.jdk/Contents/Home
   export PATH="$JAVA_HOME/bin:$PATH"
 }
 
@@ -95,7 +100,6 @@ alias dki='docker images'
 alias dup='docker compose up'
 alias dus='docker compose stop'
 alias dud='docker compose down'
-
 
 # Git Standup
 alias standup='cd ~/projects/twobo && git standup -a "Urban Sanden" -s -m 5'
@@ -224,4 +228,28 @@ togif() {
 
   ffmpeg -i "$input_file" -vf "setpts=PTS/$pts,fps=$framerate,scale=1520:-1:flags=lanczos" -c:v pam -f image2pipe - \
   | convert -delay 5 - -loop 0 -layers optimize "$output_file.gif"
+}
+
+# Activate/deactivate ./git/hooks/prepare-commit-msg hook
+togglePrepareCommitHook() {
+    hook_path=".git/hooks/prepare-commit-msg"
+    backup_path=".git/hooks/prepare-commit-msg-BAK"
+
+    if [ -f "$hook_path" ]; then
+        if [ -f "$backup_path" ]; then
+            echo "Error: Backup file already exists. Aborting."
+            return 1
+        fi
+
+        mv "$hook_path" "$backup_path"
+        echo "Prepare-commit-msg hook deactivated."
+    else
+        if [ ! -f "$backup_path" ]; then
+            echo "Error: No backup file found. Aborting."
+            return 1
+        fi
+
+        mv "$backup_path" "$hook_path"
+        echo "Prepare-commit-msg hook activated."
+    fi
 }
