@@ -14,33 +14,14 @@ alias prev="cd -"
 alias gw="./gradlew"
 alias dr="./debug/run"
 alias bdw="npm run build.dev.watch"
-alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ${HOME}/projects/twobo/curity-web-ui/dist/dev ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
-alias rebuildrf="git submodule update && ./gradlew stopAll && rm -rf ${HOME}/projects/twobo/idsvr/dist && ./gradlew packageDebug --parallel && ln -s ${HOME}/projects/twobo/curity-web-ui/dist/dev ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
-alias resym="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/dev ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
-alias resymprod="ln -s ${HOME}/projects/twobo/curity-web-ui/dist/prod ${HOME}/projects/twobo/idsvr/dist/etc/admin-webui"
-alias webmobile="iip | pbcopy"
-
-# Launch dev standup on Zoom
-function sdev() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
-}
-
-# Launch PMe/Marketing standup on Zoom
-function spme() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
-}
+alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/dev ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
+alias rebuildrf="git submodule update && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/dev ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
+alias resym="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/dev ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
+alias resymprod="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/prod ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
 
 # Java
 # The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
 # https://docs.brew.sh/FAQ#what-does-keg-only-mean
-
-# version 17
-#brew install openjdk@21
-#sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
 
 # Switch Java versions
 function java17() {
@@ -52,7 +33,6 @@ function java21() {
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-21.jdk/Contents/Home
   export PATH="$JAVA_HOME/bin:$PATH"
 }
-
 
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
@@ -101,12 +81,32 @@ alias dup='docker compose up'
 alias dus='docker compose stop'
 alias dud='docker compose down'
 
-# Git Standup
-alias standup='cd ~/projects/twobo && git standup -a "Urban Sanden" -s -m 5'
-alias standupweek='cd ~/projects/twobo && git standup -a "Urban Sanden" -d 3 -s -m 5'
+# Launch dev standup on Zoom
+function sdev() {
+  clear
+  echo "Launching Zoom..."
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_DEV_STANDUP_PASSWORD}"
+}
 
-# Git Standup personal
-alias logp='cd ~/projects && git standup -a "Urban" -s -m 3'
+# Launch PMe/Marketing standup on Zoom
+function spme() {
+  clear
+  echo "Launching Zoom..."
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_PME_STANDUP_PASSWORD}"
+}
+
+# Git Standup
+function gitStandup() {
+    local days=$1
+    if [[ -z $days ]]; then
+        echo "Usage: git_standup <number of days>"
+        return 1
+    fi
+
+    cd "${PROJECTS_DIRECTORY}"
+    git standup -a "Urban Sandén" -m 5 -w "$days" -s
+}
+
 
 # Open in VS Code
 function code {

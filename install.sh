@@ -149,6 +149,7 @@ brew install openjdk@8
 brew install openjdk@11
 brew install openjdk@17
 brew install openjdk@21
+brew install openjdk@22
 
 # Install Composer
 echo "Installing Composer"
