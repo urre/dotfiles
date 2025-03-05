@@ -9,9 +9,6 @@ export PATH=$PATH:/Users/urbansanden/projects/twobo/identity-server/dist/bin/
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Path to Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
-
 # Plugins
 plugins=(git zsh-z gitfast zsh-nvm zsh-nvm-auto-switch)
 
@@ -32,3 +29,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+########### pyenv ###########
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PATH=$HOME/.pyenv/shims/:$PATH
+export PATH="$HOME/.local/bin:$PATH"

@@ -65,6 +65,10 @@
     "args": { "text": ". ${file}" }
   },
   {
+    "key": "ctrl+alt+t", // Change this to your preferred shortcut
+    "command": "workbench.action.terminal.toggle"
+  },
+  {
     "key": "cmd+shift+u",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",

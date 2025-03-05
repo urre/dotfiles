@@ -13,21 +13,15 @@ alias prev="cd -"
 # Work
 alias gw="./gradlew"
 alias dr="./debug/run"
-alias bdw="npm run build.dev.watch"
-alias rebuild="git submodule update && ./gradlew stopAll && ./gradlew clean packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/dev ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
-alias rebuildrf="git submodule update && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/dev ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
-alias resym="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/dev ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
-alias resymprod="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/prod ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
+alias rebuild="git submodule update && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
+alias reloadconfig="cd ${PROJECTS_DIRECTORY}/idsvr/dist/bin && ./idsvr -f"
+alias enabledevops="cd ${PROJECTS_DIRECTORY}/curity-web-ui/devops-dashboard && npx cypress run --spec cypress/e2e/EnableDashboard.ts"
+alias resym="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
+alias t="curity-cli t"
 
 # Java
 # The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
 # https://docs.brew.sh/FAQ#what-does-keg-only-mean
-
-# Switch Java versions
-function java17() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
-}
 
 function java21() {
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-21.jdk/Contents/Home
@@ -252,4 +246,42 @@ togglePrepareCommitHook() {
         mv "$backup_path" "$hook_path"
         echo "Prepare-commit-msg hook activated."
     fi
+}
+
+# Update the authToken for curity-npm-group-registry, used for publishing npm packages
+# When using curity-cli t, only the curity-npm-group is updated. This function updates curity-npm-group-registry so it's using the same token
+update_npmrc_token() {
+  local npmrc="$HOME/.npmrc"
+  local first_token
+  local second_token
+
+  # Extract the first auth token
+  first_token=$(grep "//hub.curityio.net/repository/curity-npm-group/:_authToken=" "$npmrc" | cut -d'=' -f2)
+
+  # Check if the first token exists
+  if [[ -z "$first_token" ]]; then
+    echo "First auth token not found!"
+    return 1
+  fi
+
+  # Update the second auth token to match the first
+  sed -i.bak "s#//hub.curityio.net/repository/curity-npm-registry/:_authToken=.*#//hub.curityio.net/repository/curity-npm-registry/:_authToken=${first_token}#" "$npmrc"
+
+  echo "Updated curity-npm-registry auth token to match the curity-npm-group-registry"
+}
+
+,notify () {
+  local last_exit_status="$?"
+
+  if [[ "$last_exit_status" == '0' ]]; then
+    osascript -e "display notification \"Done\" with title \"Good\" sound name \"Fonk\""
+  else
+    osascript -e "display notification \"Exit code: $last_exit_status\" with title \"Bad\" sound name \"Ping\""
+  fi
+  $(exit "$last_exit_status")
+}
+
+# Download YouTube videos to my Plex server using yt-dlp
+dlv() {
+  yt-dlp -f "bestvideo[height>=720]+bestaudio/best[height>=720]" --merge-output-format mkv -P "/Volumes/Videos" "$1"
 }

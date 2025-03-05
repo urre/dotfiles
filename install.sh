@@ -38,9 +38,8 @@ echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
 
 # Install Node.js using nvm
-nvm install 14.17.5
-nvm install 16.14.2
-nvm install 18.3.0
+nvm install 20.16.0
+nvm install 22.5.1
 
 # Install Homebrew Packages
 cd ~
@@ -90,7 +89,6 @@ homebrew_packages=(
 	"openssl"
 	"php"
 	"pipenv"
-	"python3"
 	"rectangle"
 	"rocket"
 	"roon"
