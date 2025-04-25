@@ -19,6 +19,27 @@ alias enabledevops="cd ${PROJECTS_DIRECTORY}/curity-web-ui/devops-dashboard && n
 alias resym="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
 alias t="curity-cli t"
 
+# Load config from a file
+loadconfig() {
+    local input="$1"
+    if [ -z "$input" ]; then
+        echo "Error: XML file input path is required"
+        return 1
+    fi
+    if [ -z "$PROJECTS_DIRECTORY" ]; then
+        echo "Error: PROJECTS_DIRECTORY is not set"
+        return 1
+    fi
+
+    "${PROJECTS_DIRECTORY}/idsvr/dist/bin/idsh" --noninteractive << EOF
+        configure
+        load merge ${input}
+        commit
+        exit no-confirm
+        exit
+EOF
+}
+
 # Java
 # The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
 # https://docs.brew.sh/FAQ#what-does-keg-only-mean
@@ -74,20 +95,6 @@ alias dki='docker images'
 alias dup='docker compose up'
 alias dus='docker compose stop'
 alias dud='docker compose down'
-
-# Launch dev standup on Zoom
-function sdev() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_DEV_STANDUP_PASSWORD}"
-}
-
-# Launch PMe/Marketing standup on Zoom
-function spme() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_PME_STANDUP_PASSWORD}"
-}
 
 # Git Standup
 function gitStandup() {
