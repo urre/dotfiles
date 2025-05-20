@@ -26,18 +26,32 @@ loadconfig() {
         echo "Error: XML file input path is required"
         return 1
     fi
-    if [ -z "$PROJECTS_DIRECTORY" ]; then
-        echo "Error: PROJECTS_DIRECTORY is not set"
+    if [ -z "$IDSVR_DIRECTORY" ]; then
+        echo "Error: IDSVR_DIRECTORY is not set"
         return 1
     fi
 
-    "${PROJECTS_DIRECTORY}/idsvr/dist/bin/idsh" --noninteractive << EOF
+    "${IDSVR_DIRECTORY}/dist/bin/idsh" --noninteractive << EOF
         configure
         load merge ${input}
         commit
         exit no-confirm
         exit
 EOF
+}
+
+# Launch dev standup on Zoom
+function sdev() {
+  clear
+  echo "Launching Zoom..."
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
+}
+
+# Launch PMe/Marketing standup on Zoom
+function spme() {
+  clear
+  echo "Launching Zoom..."
+  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
 }
 
 # Java
@@ -155,6 +169,31 @@ function mergey() {
   # open -a Preview ~/desktop/merged.jpg
   open -a CleanShot\ X/ merged.jpg
 }
+
+# Scale image
+scale() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: scale image.jpg max_width"
+    return 1
+  fi
+
+  local input_image="$1"
+  local max_width="$2"
+  local output_image="scaled_${input_image}"
+
+  # Ensure 'magick' command is available
+  if ! command -v magick >/dev/null 2>&1; then
+    echo "Error: 'magick' (ImageMagick 7) not found in PATH."
+    return 1
+  fi
+
+  # Resize image to max width, height auto-scaled
+  magick "$input_image" -resize "${max_width}x" "$output_image"
+
+  echo "Image scaled to max width ${max_width}px -> ${output_image}"
+  open -a "CleanShot X" "$output_image"
+}
+
 
 # Collage of all images in the current folder
 function montageall() {
