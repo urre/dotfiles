@@ -294,27 +294,6 @@ togglePrepareCommitHook() {
     fi
 }
 
-# Update the authToken for curity-npm-group-registry, used for publishing npm packages
-# When using curity-cli t, only the curity-npm-group is updated. This function updates curity-npm-group-registry so it's using the same token
-update_npmrc_token() {
-  local npmrc="$HOME/.npmrc"
-  local first_token
-  local second_token
-
-  # Extract the first auth token
-  first_token=$(grep "//hub.curityio.net/repository/curity-npm-group/:_authToken=" "$npmrc" | cut -d'=' -f2)
-
-  # Check if the first token exists
-  if [[ -z "$first_token" ]]; then
-    echo "First auth token not found!"
-    return 1
-  fi
-
-  # Update the second auth token to match the first
-  sed -i.bak "s#//hub.curityio.net/repository/curity-npm-registry/:_authToken=.*#//hub.curityio.net/repository/curity-npm-registry/:_authToken=${first_token}#" "$npmrc"
-
-  echo "Updated curity-npm-registry auth token to match the curity-npm-group-registry"
-}
 
 ,notify () {
   local last_exit_status="$?"
