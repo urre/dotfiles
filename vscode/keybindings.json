@@ -41,18 +41,12 @@
     "command": "editor.action.selectHighlights",
     "when": "editorTextFocus"
   },
-  // For CSS and SCSS files - use block comment
-  {
-    "key": "cmd+e",
-    "command": "editor.action.blockComment",
-    "when": "editorTextFocus && !editorReadonly && (editorLangId == 'css' || editorLangId == 'scss')"
-  },
-  // For all other file types - use line comment
   {
     "key": "cmd+e",
     "command": "editor.action.commentLine",
-    "when": "editorTextFocus && !editorReadonly && !(editorLangId == 'css' || editorLangId == 'scss')"
+    "when": "editorTextFocus && !editorReadonly"
   },
+
   {
     "key": "cmd+j",
     "command": "editor.action.blockComment",
