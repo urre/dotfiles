@@ -1,6 +1,10 @@
-# Load some .env secreets
+# Load some .env secrets
 DIR=$( cd ~/.dotfiles && pwd )
-source "$DIR/.env"
+if [ -f "$DIR/.env" ]; then
+  source "$DIR/.env"
+else
+  echo "Warning: $DIR/.env file not found, skipping environment variable loading."
+fi
 
 # General
 alias cls="clear"
@@ -13,7 +17,7 @@ alias prev="cd -"
 # Work
 alias gw="./gradlew"
 alias dr="./debug/run"
-alias rebuild="git submodule update && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
+alias rebuild="git submodule update --init --recursive && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
 alias reloadconfig="cd ${PROJECTS_DIRECTORY}/idsvr/dist/bin && ./idsvr -f"
 alias enabledevops="cd ${PROJECTS_DIRECTORY}/curity-web-ui/devops-dashboard && npx cypress run --spec cypress/e2e/EnableDashboard.ts"
 alias resym="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
@@ -309,4 +313,38 @@ togglePrepareCommitHook() {
 # Download YouTube videos to my Plex server using yt-dlp
 dlv() {
   yt-dlp -f "bestvideo[height>=720]+bestaudio/best[height>=720]" --merge-output-format mkv -P "/Volumes/Videos" "$1"
+}
+
+# Update the authToken for curity-npm-group-registry, used for publishing npm packages
+# When using curity-cli t, only the curity-npm-group is updated. This function updates curity-npm-group-registry so it's using the same token
+update_npmrc_token() {
+  local npmrc="$HOME/.npmrc"
+  local first_token
+  local second_token
+
+  # Extract the first auth token
+  first_token=$(grep "//hub.curityio.net/repository/curity-npm-group/:_authToken=" "$npmrc" | cut -d'=' -f2)
+
+  # Check if the first token exists
+  if [[ -z "$first_token" ]]; then
+    echo "First auth token not found!"
+    return 1
+  fi
+
+  # Update the second auth token to match the first
+  sed -i.bak "s#//hub.curityio.net/repository/curity-npm-registry/:_authToken=.*#//hub.curityio.net/repository/curity-npm-registry/:_authToken=${first_token}#" "$npmrc"
+
+  echo "Updated curity-npm-registry auth token to match the curity-npm-group-registry"
+}
+
+# Show free space on a volume
+diskfree() {
+    df -h "$1" | awk 'NR==2 {
+        total=$2; used=$3; avail=$4;
+        gsub(/Gi/, "GB", total); gsub(/Gi/, "GB", used); gsub(/Gi/, "GB", avail);
+        gsub(/Mi/, "MB", total); gsub(/Mi/, "MB", used); gsub(/Mi/, "MB", avail);
+        gsub(/Ti/, "TB", total); gsub(/Ti/, "TB", used); gsub(/Ti/, "TB", avail);
+        freePct = ($4+0)/($2+0)*100;
+        printf "\033[1;32mAvailable:\033[0m %s\n\033[1;36mTotal:\033[0m %s\n\033[1;33mFree:\033[0m %.1f%%\n", avail, total, freePct
+    }'
 }
