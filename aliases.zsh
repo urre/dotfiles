@@ -310,11 +310,6 @@ togglePrepareCommitHook() {
   $(exit "$last_exit_status")
 }
 
-# Download YouTube videos to my Plex server using yt-dlp
-dlv() {
-  yt-dlp -f "bestvideo[height>=720]+bestaudio/best[height>=720]" --merge-output-format mkv -P "/Volumes/Videos" "$1"
-}
-
 # Update the authToken for curity-npm-group-registry, used for publishing npm packages
 # When using curity-cli t, only the curity-npm-group is updated. This function updates curity-npm-group-registry so it's using the same token
 update_npmrc_token() {
@@ -347,4 +342,21 @@ diskfree() {
         freePct = ($4+0)/($2+0)*100;
         printf "\033[1;32mAvailable:\033[0m %s\n\033[1;36mTotal:\033[0m %s\n\033[1;33mFree:\033[0m %.1f%%\n", avail, total, freePct
     }'
+}
+
+# Repeat a command at a specified interval (in seconds)
+# Usage: runevery 5 npm run build
+runevery() {
+  if [[ $# -lt 2 ]]; then
+    echo "Usage: runevery <interval> <command> [args...]"
+    return 1
+  fi
+
+  local interval=$1
+  shift
+
+  while true; do
+    "$@" &
+    sleep "$interval"
+  done
 }
