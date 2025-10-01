@@ -11,7 +11,7 @@ alias cls="clear"
 alias size="du -k -a | sort -n"
 alias iip="ipconfig getifaddr en0"
 alias eip="curl icanhazip.com"
-alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias reload=". ~/.zshrc"
 alias prev="cd -"
 
 # Work
