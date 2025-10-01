@@ -14,14 +14,13 @@ plugins=(git zsh-z gitfast zsh-nvm zsh-nvm-auto-switch)
 
 source $ZSH/oh-my-zsh.sh
 
+# Starship prompt
+export STARSHIP_CONFIG="$DOTFILES/starship.toml"
+eval "$(starship init zsh)"
+
+
 # Nano as crontab editor
 export EDITOR=nano
-
-# pure prompt
-fpath+=($HOME/.zsh/pure)
-
-autoload -U promptinit; promptinit
-prompt pure
 
 # export PATH="$HOME/.poetry/bin:$PATH"
 

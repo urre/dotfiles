@@ -38,8 +38,7 @@ echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
 
 # Install Node.js using nvm
-nvm install 20.16.0
-nvm install 22.5.1
+nvm install 22.19.0
 
 # Install Homebrew Packages
 cd ~
@@ -83,7 +82,6 @@ homebrew_packages=(
 	"ngrok"
 	"node"
 	"notion"
-	"now"
 	"nss"
 	"numi"
 	"openssl"
@@ -125,9 +123,6 @@ brew install --cask zoom
 # Messenger
 brew install --cask messenger
 
-# ChronoSync Express
-brew install --cask chronosync
-
 # NetNewsWire
 brew install --cask netnewswire
 
@@ -143,9 +138,6 @@ pip3 install cloudinary-cli
 # Install Java
 echo "Installing Java"
 brew tap AdoptOpenJDK/openjdk
-brew install openjdk@8
-brew install openjdk@11
-brew install openjdk@17
 brew install openjdk@21
 brew install openjdk@22
 
