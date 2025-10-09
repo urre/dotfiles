@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Automatically prepend "TICKET " from branch name (CW|IS|CDP) to commit message.
+# e.g. from branch feature/CW-1234-login -> "CW-1234 My commit"
+
+MSG_FILE="$1"
+SOURCE="$2"
+
+# Optional bypass: allow skipping this hook
+[ "$DISABLE_JIRA_HOOK" = "true" ] && exit 0
+
+# Skip merge/squash commits
+case "$SOURCE" in
+  merge|squash) exit 0 ;;
+esac
+
+# Get branch name (exit quietly if detached)
+branch="$(git symbolic-ref --quiet --short HEAD 2>/dev/null)" || exit 0
+
+# Extract first matching ticket (case-insensitive)
+ticket="$(printf '%s' "$branch" | grep -ioE '(cw|is|cdp)-[0-9]+' | head -n1)"
+[ -z "$ticket" ] && exit 0
+
+# Normalize to uppercase (so cw-1234 → CW-1234)
+ticket="$(printf '%s' "$ticket" | tr '[:lower:]' '[:upper:]')"
+
+# Read first line and check if it already starts with the ticket (case-insensitive)
+first_line="$(head -n1 "$MSG_FILE")"
+printf '%s\n' "$first_line" | grep -qiE "^${ticket}([[:space:]]|:)" && exit 0
+
+# Prepend "TICKET " to first line, keep rest of message
+tmp="$(mktemp)"
+awk -v t="${ticket} " 'NR==1{$0=t $0}1' "$MSG_FILE" > "$tmp" && mv "$tmp" "$MSG_FILE"

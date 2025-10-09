@@ -32,3 +32,26 @@ usePoetry=true
 aws_access_key_id=XXX
 aws_secret_access_key=XXX
 ```
+
+3. Git hoooks
+
+I use a global git hooks to prepend ticket name in the commits, based on the branch name. So if a branch is called `feat/dev/ABC-1234` the commit will be: `ABC-1234: My commit message`
+
+Turn on
+
+```bash
+git config --global core.hooksPath /Users/urbansanden/.dotfiles/githooks
+```
+
+Turn off
+
+```bash
+git config --global --unset core.hooksPath
+```
+
+Verify if on or off
+
+```bash
+git config --global core.hooksPath
+
+```
