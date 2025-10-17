@@ -88,5 +88,19 @@
   {
     "key": "ctrl+alt+r",
     "command": "extension.removeComments"
+  },
+
+  // Free Cmd+I in MDX by unbinding italic
+  {
+    "key": "cmd+i",
+    "command": "-markdown.toggleItalic",
+    "when": "editorLangId == 'mdx'"
+  },
+
+  // Start Inline Chat in MDX
+  {
+    "key": "cmd+i",
+    "command": "inlineChat.start",
+    "when": "editorTextFocus && editorLangId == 'mdx'"
   }
 ]

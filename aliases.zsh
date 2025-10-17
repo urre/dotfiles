@@ -23,6 +23,9 @@ alias enabledevops="cd ${PROJECTS_DIRECTORY}/curity-web-ui/devops-dashboard && n
 alias resym="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
 alias t="curity-cli t"
 
+# Cat with syntax highlighting using ccat
+alias cat='ccat'
+
 # Load config from a file
 loadconfig() {
     local input="$1"
@@ -105,10 +108,9 @@ git_status_size(){
 alias git="LANG=en_US.UTF.8 git"
 
 # Docker
-alias dockerkill='docker kill $(docker ps -q)'
-alias dockerdelete='docker rm $(docker ps -a -q)'
-alias dockerdeleteimages='docker rmi $(docker images -q)'
-alias dockerstop='docker stop $(docker ps -a -q)'
+alias dk='docker kill $(docker ps -q)'
+alias ddi='docker rmi $(docker images -q)'
+alias ds='docker stop $(docker ps -a -q)'
 alias dki='docker images'
 alias dup='docker compose up'
 alias dus='docker compose stop'
@@ -155,88 +157,6 @@ function killport() {
     lsof -ti tcp:$1 | xargs kill
 }
 
-
-# Merge two images side by side
-# then open in Preview (for fast annotations etc)
-# Usage example: mont 1.jpg 2.jpg
-function mergex() {
-  convert +append "$1" "$2" merged.jpg;
-  # open -a Preview merged.jpg
-  open -a CleanShot\ X/ merged.jpg
-}
-
-# Merge two images on top of eachother
-# then open in Preview or CleanShotX (for fast annotations etc)
-# Usage example: mont 1.jpg 2.jpg
-function mergey() {
-  convert -append "$1" "$2" merged.jpg;
-  # open -a Preview ~/desktop/merged.jpg
-  open -a CleanShot\ X/ merged.jpg
-}
-
-# Scale image
-scale() {
-  if [ $# -ne 2 ]; then
-    echo "Usage: scale image.jpg max_width"
-    return 1
-  fi
-
-  local input_image="$1"
-  local max_width="$2"
-  local output_image="scaled_${input_image}"
-
-  # Ensure 'magick' command is available
-  if ! command -v magick >/dev/null 2>&1; then
-    echo "Error: 'magick' (ImageMagick 7) not found in PATH."
-    return 1
-  fi
-
-  # Resize image to max width, height auto-scaled
-  magick "$input_image" -resize "${max_width}x" "$output_image"
-
-  echo "Image scaled to max width ${max_width}px -> ${output_image}"
-  open -a "CleanShot X" "$output_image"
-}
-
-
-# Collage of all images in the current folder
-function montageall() {
-  montage -background '#f2f2f2' -geometry 1280x -tile 4x4 -border 80 -bordercolor white *.jpg merged.jpg
-  open -a Preview merged.jpg
-}
-
-# Annotate two images with "Before" and "After". Then merge two images side by side. Upload to Cloudinary if upload flag passed
-# Usage example: amont 1.jpg 2.jpg upload
-function amont() {
-
-  # I store my screenshots on the desktop, so start here
-  cd ~/desktop
-
-  if [ "$4" = 'annotate' ]
-  then
-    # Annotate adding the Before/After text if annotate flag is passed
-    convert "$1" -undercolor white -pointsize 66 -fill red  -gravity Northwest -annotate 0 'Before' "$1"
-    convert "$2" -undercolor white -pointsize 66 -fill "#78BE21"  -gravity Northwest -annotate 0 'After' "$2"
-  fi
-
-  # Merge the two images side by side, open the image in Preview
-  # montage -background '#f2f2f2' -geometry 1280x720+0+0 1.jpg 2.jpg merged.jpg;
-  convert -background "#6e768f" 2.jpg +append \( 1.jpg \) -append -resize 1600x1600 result.jpg
-
-  # Open in Preview
-  open -a Preview ~/desktop/result.jpg
-
-  # Upload to CDN if upload flag passed
-  if [ "$3" = 'upload' ]
-  then
-    DIR=$( cd ~/.dotfiles && pwd )
-    source "$DIR/.env"
-    CLOUDINARY_URL=$(echo "$CLOUDINARY_URL")
-    # Upload to Cloudinary and then copy the HTTPS image link to clipboard (using the cld uploader)
-    cld uploader upload ~/desktop/result.jpg | jq -r '.secure_url' | pbcopy
-  fi
-}
-
 # Check weather using "weather Cityname"
 weather() {
     city="$1"
@@ -255,50 +175,13 @@ function sz() {
   du -d 1 -h "$1" | cut -f1
 }
 
+
 function szgzip() {
   gzip -c "$1" | wc -c | awk '{$1/=1024;printf "%.2fK\n",$1}'
 }
 
-# Convert mp4 to GIF with ffmpeg
-# Usage: togif "validation.mp4" "output" 25 1.5
-togif() {
-  # Required arguments
-  input_file="$1"
-  output_file="$2"
 
-  # Optional arguments with default values
-  framerate="${3:-30}"
-  pts="${4:-2}"
-
-  ffmpeg -i "$input_file" -vf "setpts=PTS/$pts,fps=$framerate,scale=1520:-1:flags=lanczos" -c:v pam -f image2pipe - \
-  | convert -delay 5 - -loop 0 -layers optimize "$output_file.gif"
-}
-
-# Activate/deactivate ./git/hooks/prepare-commit-msg hook
-togglePrepareCommitHook() {
-    hook_path=".git/hooks/prepare-commit-msg"
-    backup_path=".git/hooks/prepare-commit-msg-BAK"
-
-    if [ -f "$hook_path" ]; then
-        if [ -f "$backup_path" ]; then
-            echo "Error: Backup file already exists. Aborting."
-            return 1
-        fi
-
-        mv "$hook_path" "$backup_path"
-        echo "Prepare-commit-msg hook deactivated."
-    else
-        if [ ! -f "$backup_path" ]; then
-            echo "Error: No backup file found. Aborting."
-            return 1
-        fi
-
-        mv "$backup_path" "$hook_path"
-        echo "Prepare-commit-msg hook activated."
-    fi
-}
-
-
+# Add ,notify after a command to get a macOS notification when the command completes
 ,notify () {
   local last_exit_status="$?"
 
@@ -308,28 +191,6 @@ togglePrepareCommitHook() {
     osascript -e "display notification \"Exit code: $last_exit_status\" with title \"Bad\" sound name \"Ping\""
   fi
   $(exit "$last_exit_status")
-}
-
-# Update the authToken for curity-npm-group-registry, used for publishing npm packages
-# When using curity-cli t, only the curity-npm-group is updated. This function updates curity-npm-group-registry so it's using the same token
-update_npmrc_token() {
-  local npmrc="$HOME/.npmrc"
-  local first_token
-  local second_token
-
-  # Extract the first auth token
-  first_token=$(grep "//hub.curityio.net/repository/curity-npm-group/:_authToken=" "$npmrc" | cut -d'=' -f2)
-
-  # Check if the first token exists
-  if [[ -z "$first_token" ]]; then
-    echo "First auth token not found!"
-    return 1
-  fi
-
-  # Update the second auth token to match the first
-  sed -i.bak "s#//hub.curityio.net/repository/curity-npm-registry/:_authToken=.*#//hub.curityio.net/repository/curity-npm-registry/:_authToken=${first_token}#" "$npmrc"
-
-  echo "Updated curity-npm-registry auth token to match the curity-npm-group-registry"
 }
 
 # Show free space on a volume

@@ -1,0 +1,22 @@
+# ~/.config/starship.toml
+
+# Disable all modules by default
+format = "$all"
+add_newline = false
+scan_timeout = 10
+
+# Disable everything except Node.js
+[package]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[golang]
+disabled = true
+
+[gradle]
+disabled = true
