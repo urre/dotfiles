@@ -1,17 +1,16 @@
-# Merge two images side by side
-# then open in Preview (for fast annotations etc)
-# Usage example: mont 1.jpg 2.jpg
+# Merge all images in current folder side by side
+# then open in CleanShot X (for fast annotations etc)
+# Usage example: mergex
 function mergex() {
-  convert +append "$1" "$2" merged.jpg;
-  # open -a Preview merged.jpg
+  magick +append *.jpg merged.jpg;
   open -a CleanShot\ X/ merged.jpg
 }
 
-# Merge two images on top of eachother
+# Merge all images in current folder on top of each other
 # then open in Preview or CleanShotX (for fast annotations etc)
-# Usage example: mont 1.jpg 2.jpg
+# Usage example: mergey
 function mergey() {
-  convert -append "$1" "$2" merged.jpg;
+  magick -append *.jpg merged.jpg;
   # open -a Preview ~/desktop/merged.jpg
   open -a CleanShot\ X/ merged.jpg
 }
@@ -42,7 +41,7 @@ scale() {
 
 # Collage of all images in the current folder
 function montageall() {
-  montage -background '#f2f2f2' -geometry 1280x -tile 4x4 -border 80 -bordercolor white *.jpg merged.jpg
+  montage -background '#f2f2f2' -geometry 1680x -tile 3x1 -border 80 -bordercolor white *.jpg merged.jpg
   open -a Preview merged.jpg
 }
 
@@ -92,4 +91,20 @@ togif() {
 
   ffmpeg -i "$input_file" -vf "setpts=PTS/$pts,fps=$framerate,scale=1520:-1:flags=lanczos" -c:v pam -f image2pipe - \
   | convert -delay 5 - -loop 0 -layers optimize "$output_file.gif"
+}
+
+# Extend images to 9x16 aspect ratio
+extend_to_9x16() {
+  local bg="${1:-#f2f2f2}"
+
+  for f in *.png; do
+    [[ -e "$f" ]] || { echo "No PNG files found."; return 1; }
+
+    echo "Processing $f ..."
+    magick "$f" \
+      -gravity center \
+      -background "$bg" \
+      -extent "%[fx:ceil(max(w,9*h/16))]x%[fx:ceil(max(16*w/9,h))]" \
+      "$f"
+  done
 }

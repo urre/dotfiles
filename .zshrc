@@ -3,17 +3,21 @@ export DOTFILES=$HOME/.dotfiles
 
 ZSH_CUSTOM=$DOTFILES
 
-# Path to Curity Identiy Server CLI binary (idsvr)
-export PATH=$PATH:/Users/urbansanden/projects/twobo/identity-server/dist/bin/
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+# Curity Identity Server paths
+export IDSVR_HOME=/Users/urbansanden/projects/twobo/idsvr
+export PATH=$PATH:$IDSVR_HOME/dist/bin/
 
 # Plugins
 plugins=(git zsh-z gitfast zsh-nvm zsh-nvm-auto-switch)
 
 # Oh My Zsh
 source $ZSH/oh-my-zsh.sh
+
+# Load aliases
+source ~/.dotfiles/aliases.zsh
 
 # Image tools
 source ~/.dotfiles/image-tools.zsh
@@ -29,6 +33,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Use Node v22.19.0 by default
+nvm use 22.19.0 --silent
 
 ########### pyenv ###########
 export PYENV_ROOT="$HOME/.pyenv"

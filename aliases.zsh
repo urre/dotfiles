@@ -1,5 +1,5 @@
 # Load some .env secrets
-DIR=$( cd ~/.dotfiles && pwd )
+DIR="$HOME/.dotfiles"
 if [ -f "$DIR/.env" ]; then
   source "$DIR/.env"
 else

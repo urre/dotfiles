@@ -12,9 +12,6 @@ My dotfiles repo
 6. Run the installer script `./install.sh`
 7. Restart macOS
 
-## Apple M1 or M2?
-
-You might need Rosetta `softwareupdate --install-rosetta --agree-to-license`
 
 ## Work stuff
 1. Keep Maven credentials in `~/.gradle/gradle.properties`
