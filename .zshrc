@@ -7,8 +7,8 @@ ZSH_CUSTOM=$DOTFILES
 export ZSH=$HOME/.oh-my-zsh
 
 # Curity Identity Server paths
-export IDSVR_HOME=/Users/urbansanden/projects/twobo/idsvr
-export PATH=$PATH:$IDSVR_HOME/dist/bin/
+export IDSVR_HOME=/Users/urbansanden/projects/twobo/idsvr/dist
+export PATH=$PATH:$IDSVR_HOME/bin/
 
 # Plugins
 plugins=(git zsh-z gitfast zsh-nvm zsh-nvm-auto-switch)
