@@ -18,9 +18,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Load aliases
 source ~/.dotfiles/aliases.zsh
+source ~/.dotfiles/aliases-work.zsh
 
 # Image tools
 source ~/.dotfiles/image-tools.zsh
+
+# Vide tools
+source ~/.dotfiles/video-tools.zsh
 
 # Starship prompt
 export STARSHIP_CONFIG="$DOTFILES/starship.toml"

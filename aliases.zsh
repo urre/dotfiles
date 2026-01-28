@@ -14,62 +14,6 @@ alias eip="curl icanhazip.com"
 alias reload=". ~/.zshrc"
 alias prev="cd -"
 
-# Work
-alias gw="./gradlew"
-alias dr="./debug/run"
-alias rebuild="git submodule update --init --recursive && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel && ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
-alias reloadconfig="cd ${PROJECTS_DIRECTORY}/idsvr/dist/bin && ./idsvr -f && cd -"
-alias enabledevops="cd ${PROJECTS_DIRECTORY}/curity-web-ui/devops-dashboard && npx cypress run --spec cypress/e2e/EnableDashboard.ts"
-alias resym="ln -s ${PROJECTS_DIRECTORY}/curity-web-ui/dist/browser ${PROJECTS_DIRECTORY}/idsvr/dist/etc/admin-webui"
-alias t="curity-cli t"
-
-# Cat with syntax highlighting using ccat
-alias cat='ccat'
-
-# Load config from a file
-loadconfig() {
-    local input="$1"
-    if [ -z "$input" ]; then
-        echo "Error: XML file input path is required"
-        return 1
-    fi
-    if [ -z "$IDSVR_DIRECTORY" ]; then
-        echo "Error: IDSVR_DIRECTORY is not set"
-        return 1
-    fi
-
-    "${IDSVR_DIRECTORY}/dist/bin/idsh" --noninteractive << EOF
-        configure
-        load merge ${input}
-        commit
-        exit no-confirm
-        exit
-EOF
-}
-
-# Launch dev standup on Zoom
-function sdev() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_DEV_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
-}
-
-# Launch PMe/Marketing standup on Zoom
-function spme() {
-  clear
-  echo "Launching Zoom..."
-  open "zoommtg://zoom.us/join?action=join&confno=${ZOOM_PME_STANDUP_CONF_NO}&pwd=${ZOOM_STANDUP_PASSWORD}"
-}
-
-# Java
-# The openjdk@X is keg-only; we need to create a symbolic link so that the macOS java wrapper can find it.
-# https://docs.brew.sh/FAQ#what-does-keg-only-mean
-
-function java21() {
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-21.jdk/Contents/Home
-  export PATH="$JAVA_HOME/bin:$PATH"
-}
-
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
@@ -220,4 +164,16 @@ runevery() {
     "$@" &
     sleep "$interval"
   done
+}
+
+# Run Cypress test with Chrome headless
+# Usage: cypressrun <spec_file_path>
+cypressrun() {
+  if [ -z "$1" ]; then
+    echo "Usage: cypressrun <spec_file_path>"
+    echo "Example: cypressrun path/to/spec/filename.cy.ts"
+    return 1
+  fi
+
+  npx cypress run --browser chrome --headless --spec "$1"
 }
