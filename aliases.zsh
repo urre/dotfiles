@@ -13,6 +13,7 @@ alias iip="ipconfig getifaddr en0"
 alias eip="curl icanhazip.com"
 alias reload=". ~/.zshrc"
 alias prev="cd -"
+alias cat='ccat'
 
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
@@ -176,4 +177,19 @@ cypressrun() {
   fi
 
   npx cypress run --browser chrome --headless --spec "$1"
+}
+
+# Restart macOS audio system
+restartaudio() {
+  echo "🔄 Restarting Core Audio…"
+  sudo killall coreaudiod
+
+  echo "🎛  Restarting Thock…"
+  killall Thock 2>/dev/null
+
+  sleep 1
+
+  open -a Thock
+
+  echo "✅ Core Audio and Thock restarted"
 }

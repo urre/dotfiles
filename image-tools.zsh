@@ -2,7 +2,7 @@
 # then open in CleanShot X (for fast annotations etc)
 # Usage example: mergex
 function mergex() {
-  magick +append *.jpg merged.jpg;
+  magick *.jpg +append merged.jpg;
   open -a CleanShot\ X/ merged.jpg
 }
 
@@ -10,7 +10,7 @@ function mergex() {
 # then open in Preview or CleanShotX (for fast annotations etc)
 # Usage example: mergey
 function mergey() {
-  magick -append *.jpg merged.jpg;
+  magick *.jpg -append merged.jpg;
   # open -a Preview ~/desktop/merged.jpg
   open -a CleanShot\ X/ merged.jpg
 }

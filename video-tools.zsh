@@ -2,12 +2,12 @@
 
 # Fix video/audio sync lag by offsetting the audio track
 # Arguments:
-#   $1 - input file (e.g., input.mp4)
-#   $2 - delay in seconds (e.g., -0.2 for 200ms earlier, 0.2 for 200ms later)
+#   $1 - delay in seconds (e.g., -0.2 for 200ms earlier, 0.2 for 200ms later)
+#   $2 - input file (e.g., input.mp4)
 # Output: Creates a new file with "_fixed" suffix (e.g., input_fixed.mp4)
 function fixlag() {
-  local input_file="$1"
-  local delay="$2"
+  local delay="$1"
+  local input_file="$2"
 
   local base="${input_file%.*}"
   local ext="${input_file##*.}"
