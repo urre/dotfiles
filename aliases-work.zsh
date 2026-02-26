@@ -20,9 +20,7 @@ loadconfig() {
 # Usage: jiraticket <project> <summary>
 # Example: jiraticket CW "Fix login redirect loop"
 jiraticket() {
-  local project="${1:?Usage: jiraticket <project> <summary>}"
-  local summary="${2:?Usage: jiraticket <project> <summary>}"
-  acli rovodev run "Create a Jira issue in project ${project}. Type: Task. Summary: ${summary}"
+  acli rovodev run "Create a Jira issue in project ${1}. Type: Task. Summary: ${2}"
 }
 
 # Open Google Meet links
