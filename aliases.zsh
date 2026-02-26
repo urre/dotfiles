@@ -15,6 +15,9 @@ alias reload=". ~/.zshrc"
 alias prev="cd -"
 alias cat='ccat'
 
+# List 5 most recently modified folders
+alias lsr="ls -dtG */ 2>/dev/null | head -5"
+
 # Git log
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 

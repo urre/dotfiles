@@ -3,6 +3,9 @@ alias gw="./gradlew"
 alias dr="./debug/run"
 alias t="curity-cli t"
 
+# Git
+alias recent="git for-each-ref --sort=committerdate --format='%(color:yellow)%(committerdate:relative)%(color:reset) %(color:green)%(refname:short)%(color:reset)' --color=always refs/heads/ | tail -10"
+
 # Build idsvr, reload config and enable DevOps Dashboard
 alias rebuild="git submodule update --init --recursive && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel"
 alias reloadconfig="cd ${PROJECTS_DIRECTORY}/idsvr/dist/bin && ./idsvr -f && cd -"
@@ -14,7 +17,13 @@ loadconfig() {
 }
 
 # Create a Jira ticket
-jiraticket() { open "https://curity.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=11200&issuetype=3" }
+# Usage: jiraticket <project> <summary>
+# Example: jiraticket CW "Fix login redirect loop"
+jiraticket() {
+  local project="${1:?Usage: jiraticket <project> <summary>}"
+  local summary="${2:?Usage: jiraticket <project> <summary>}"
+  acli rovodev run "Create a Jira issue in project ${project}. Type: Task. Summary: ${summary}"
+}
 
 # Open Google Meet links
 function meet() {
