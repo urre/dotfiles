@@ -5,6 +5,7 @@ alias t="curity-cli t"
 
 # Git
 alias recent="git for-each-ref --sort=committerdate --format='%(color:yellow)%(committerdate:relative)%(color:reset) %(color:green)%(refname:short)%(color:reset)' --color=always refs/heads/ | tail -10"
+alias committitle="git diff --staged | claude -p 'Generate a concise commit message for these staged changes. Output only the message, nothing else.' | tee /dev/tty | pbcopy && echo '✅ Copied to clipboard'"
 
 # Build idsvr, reload config and enable DevOps Dashboard
 alias rebuild="git submodule update --init --recursive && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel"
