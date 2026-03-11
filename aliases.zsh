@@ -14,15 +14,27 @@ alias eip="curl icanhazip.com"
 alias reload=". ~/.zshrc"
 alias prev="cd -"
 alias cat='ccat'
+alias tkill='tmux list-panes -s -F "#{pane_pid}" | xargs kill -9; tmux kill-session'
+alias notes='cd /Users/urbansanden/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Notes/'
+alias curity='clear && figlet CURITY | while IFS= read -r line; do printf "\033[38;2;216;89;161m%s\033[0m\n" "$line"; done'
+
+# Git
+alias recent="git for-each-ref --sort=-committerdate --format='%(color:yellow)%(committerdate:relative)%(color:reset) %(color:green)%(refname:short)%(color:reset)' --color=always refs/heads/ | head -10"
+
+# Generate a git commit message using Claude → copy to clipboard only
+alias ct="git diff --staged | claude -p 'Generate a concise commit message for these staged changes. Output only the message, nothing else.' | tee /dev/tty | tr -d '\n' | pbcopy && echo '\n✅ Copied to clipboard'"
+
+# Generate a git commit message using Claude → commit directly
+alias ctc="git diff --staged | claude -p 'Generate a concise commit message for these staged changes. Output only the message, nothing else.' | xargs -0 git commit -m"
 
 # List 5 most recently modified folders
 alias lsr="ls -dtG */ 2>/dev/null | head -5"
 
-# Git log
-alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+# Git log pretty
+alias gl="git --no-pager log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 # Git log today
-alias glt="git log --no-merges --since="6am" --pretty=oneline --abbrev-commit"
+alias glt="git --no-pager log --no-merges --since="6am" --pretty=oneline --abbrev-commit"
 
 # Git log this week
 alias glw="git shortlog --all --no-merges --author $(git config user.email) --since "1 week ago""
@@ -40,7 +52,7 @@ alias gt="git rev-list --all --count"
 alias gbt="git branch | wc -l"
 
 # Number of commits per author on all branches
-alias gct="git shortlog -s -n --all --no-merges --since='1 Jan, 2019'"
+alias gct="git --no-pager shortlog -s -n --all --no-merges --since='1 Jan, 2019'"
 
 # Show files changes, insertions and deletions in one line
 alias gshort="git diff --shortstat | sed '/^\s*$/d'"

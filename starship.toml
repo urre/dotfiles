@@ -20,3 +20,8 @@ disabled = true
 
 [gradle]
 disabled = true
+
+[git_status]
+stashed = "📦"
+modified = "✏️"
+untracked = "🔍"
