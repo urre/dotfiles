@@ -2,6 +2,7 @@
 alias gw="./gradlew"
 alias dr="./debug/run"
 alias t="curity-cli t"
+alias curity='clear && figlet CURITY | while IFS= read -r line; do printf "\033[38;2;216;89;161m%s\033[0m\n" "$line"; done'
 
 # Build idsvr, reload config and enable DevOps Dashboard
 alias rebuild="git submodule update --init --recursive && ./gradlew stopAll && rm -rf ${PROJECTS_DIRECTORY}/idsvr/dist && ./gradlew packageDebug --parallel"

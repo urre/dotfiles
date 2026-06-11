@@ -16,16 +16,29 @@ alias prev="cd -"
 alias cat='ccat'
 alias tkill='tmux list-panes -s -F "#{pane_pid}" | xargs kill -9; tmux kill-session'
 alias notes='cd /Users/urbansanden/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Notes/'
-alias curity='clear && figlet CURITY | while IFS= read -r line; do printf "\033[38;2;216;89;161m%s\033[0m\n" "$line"; done'
 
 # Git
 alias recent="git for-each-ref --sort=-committerdate --format='%(color:yellow)%(committerdate:relative)%(color:reset) %(color:green)%(refname:short)%(color:reset)' --color=always refs/heads/ | head -10"
 
+# Interactive branch switcher — navigate with arrows, enter to checkout
+recentco() {
+  local branch
+  branch=$(git for-each-ref --sort=-committerdate \
+    --format='%(committerdate:relative)|%(refname:short)' \
+    refs/heads/ | head -20 |
+    awk -F'|' '{printf "%-20s %s\n", $1, $2}' |
+    fzf --ansi --no-sort --prompt="checkout branch> " |
+    awk '{print $NF}')
+  [ -n "$branch" ] && git checkout "$branch"
+}
+
+# AI assisted stage, commit and push
 # Generate a git commit message using Claude → copy to clipboard only
 alias ct="git diff --staged | claude -p 'Generate a concise commit message for these staged changes. Output only the message, nothing else.' | tee /dev/tty | tr -d '\n' | pbcopy && echo '\n✅ Copied to clipboard'"
-
 # Generate a git commit message using Claude → commit directly
 alias ctc="git diff --staged | claude -p 'Generate a concise commit message for these staged changes. Output only the message, nothing else.' | xargs -0 git commit -m"
+# Generate a git commit message using Claude → commit and push
+alias ctcp="git diff --staged | claude -p 'Generate a concise commit message for these staged changes. Output only the message, nothing else.' | xargs -0 git commit -m && git push"
 
 # List 5 most recently modified folders
 alias lsr="ls -dtG */ 2>/dev/null | head -5"
@@ -41,6 +54,13 @@ alias glw="git shortlog --all --no-merges --author $(git config user.email) --si
 
 # Git status
 alias gs="git status -s"
+
+# Discard local changes and reset the current branch to its origin counterpart.
+useorigin() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD) || return
+  git fetch && git reset --hard "origin/${branch}"
+}
 
 # Copy current git branch name to clipboard
 alias gb="git branch | grep '^\*' | cut -d' ' -f2 | pbcopy"
@@ -88,7 +108,6 @@ function gitStandup() {
     git standup -a "Urban Sandén" -m 5 -w "$days" -s
 }
 
-
 # Open in VS Code
 function code {
     if [[ $# = 0 ]]
@@ -117,17 +136,6 @@ function killport() {
     lsof -ti tcp:$1 | xargs kill
 }
 
-# Check weather using "weather Cityname"
-weather() {
-    city="$1"
-
-    if [ -z "$city" ]; then
-        city="Lidköping"
-    fi
-
-    eval "curl http://wttr.in/${city}"
-}
-
 # Check size of files
 # Handy to check bundle sizes, built assets etc.
 # Pass in a file path ex. sz path/to/file.css
@@ -135,11 +143,10 @@ function sz() {
   du -d 1 -h "$1" | cut -f1
 }
 
-
+# Report the gzipped size of a file in KB — useful for estimating how large an asset will be over the wire.
 function szgzip() {
   gzip -c "$1" | wc -c | awk '{$1/=1024;printf "%.2fK\n",$1}'
 }
-
 
 # Add ,notify after a command to get a macOS notification when the command completes
 ,notify () {
@@ -177,7 +184,7 @@ runevery() {
   shift
 
   while true; do
-    "$@" &
+    "$@"
     sleep "$interval"
   done
 }
