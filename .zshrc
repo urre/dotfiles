@@ -47,3 +47,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 export PATH=$HOME/.pyenv/shims/:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Atlassian API token for Curity Bitbucket/Atlassian MCP — stored in macOS Keychain.
+# The stored value is base64("email:api_token"); the MCP base64-decodes it. Update with:
+#   security add-generic-password -s atlassian-basic-auth -a "$USER" -U \
+#     -w "$(printf %s 'urban.sanden@curity.io:NEW_TOKEN' | base64 | tr -d '\n')"
+# NB: Bitbucket needs an API token created "with scopes" (Bitbucket read repo + write PR) — a plain Jira token 401s.
+export ATLASSIAN_BASIC_AUTH="$(security find-generic-password -s atlassian-basic-auth -w 2>/dev/null)"
+########### java ###########
+export PATH="$HOME/.zuluhome/java/bin:$PATH"
