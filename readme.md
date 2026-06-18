@@ -12,6 +12,20 @@ My dotfiles repo
 6. Run the installer script `./install.sh`
 7. Restart macOS
 
+## Homebrew packages
+
+All formulae and casks are declared in the [`Brewfile`](Brewfile). The installer runs `brew bundle` for you, but you can re-sync at any time to install anything that's missing:
+
+```bash
+brew bundle --file=~/.dotfiles/Brewfile
+```
+
+After adding or removing entries in the `Brewfile`, run the command above again. To see what's installed but *not* in the `Brewfile`:
+
+```bash
+brew bundle cleanup --file=~/.dotfiles/Brewfile   # add --force to actually uninstall
+```
+
 
 ## Work stuff
 1. Keep Maven credentials in `~/.gradle/gradle.properties`

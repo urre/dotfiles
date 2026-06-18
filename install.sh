@@ -35,111 +35,21 @@ echo "Installing Homebrew"
 
 # Install nvm
 echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.40.5/install.sh | bash
 
 # Install Node.js using nvm
-nvm install 22.19.0
+nvm install 24.14.0
 
-# Install Homebrew Packages
+# Install Homebrew packages (formulae + casks) from the Brewfile
 cd ~
-echo "Installing Homebrew packages"
-
-# Install Homebrew packages
-echo "Installing Homebrew cask packages"
-brew tap homebrew/cask-fonts
-
-homebrew_packages=(
-	"1Password"
-	"adobe-creative-cloud"
-	"alfred"
-	"brave-browser"
-	"calibre"
-	"daisydisk"
-	"docker"
-	"dropbox"
-	"ffmpeg"
-	"fig"
-	"firefox"
-	"font-ibm-plex"
-	"font-jetbrains-mono"
-	"font-roboto-mono"
-	"font-roboto"
-	"fork"
-	"gh",
-	"git-standup"
-	"git"
-	"google-chrome"
-	"gradle"
-	"handbrake"
-	"hyper"
-	"imagemagick"
-	"insomnia"
-	"jq"
-	"kap"
-	"magnet"
-	"mkcert",
-	"mysql"
-	"ngrok"
-	"node"
-	"notion"
-	"nss"
-	"numi"
-	"openssl"
-	"php"
-	"pipenv"
-	"rectangle"
-	"rocket"
-	"roon"
-	"sequel-pro"
-	"slack"
-	"spotify"
-	"starship"
-	"tidal"
-	"transmit"
-	"typora"
-	"viscosity"
-	"visual-studio-code"
-	"vlc",
-	"watch"
-	"yarn",
-)
-
-for homebrew_package in "${homebrew_packages[@]}"; do
-	brew install "$homebrew_package"
-done
-
-# Raycast
-brew install --cask raycast
-
-# VLC
-brew install --cask vlc
-
-# Google Drive
-brew install --cask google-drive
-
-# Zoom
-brew install --cask zoom
-
-# Messenger
-brew install --cask messenger
-
-# NetNewsWire
-brew install --cask netnewswire
-
-# Edge
-brew install --cask microsoft-edge
+echo "Installing Homebrew packages from Brewfile"
+brew bundle --file="$HOME/.dotfiles/Brewfile"
 
 # Install Poetry
 curl -sSL https://install.python-poetry.org | python3 -
 
 # Cloudinary CLI
 pip3 install cloudinary-cli
-
-# Install Java
-echo "Installing Java"
-brew tap AdoptOpenJDK/openjdk
-brew install openjdk@21
-brew install openjdk@22
 
 # Install Composer
 echo "Installing Composer"
@@ -155,7 +65,6 @@ npm i -g serve
 npm i -g http-server
 npm i -g svgo
 npm i -g contentful
-npm i -g fast-cli
 
 # Generate SSH key
 echo "Generating SSH keys"
